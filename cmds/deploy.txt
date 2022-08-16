@@ -1,0 +1,1 @@
+dotnet lambda deploy-serverless --region eu-west-2 --stack-name TestWebsite --s3-bucket testxaxa --template src\ProjectTestLambdaRazor\serverless.template
