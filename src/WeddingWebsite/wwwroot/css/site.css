@@ -18,10 +18,12 @@
     font-weight: 600;
     src: url(/fonts/Lato-Bold.ttf);
 }
+
 * {
     font-family: Lato !important;
     font-weight: 400;
 }
+
 body {
     padding-top: 50px;
     padding-bottom: 20px;
@@ -32,9 +34,11 @@ body {
 /* Wrapping element */
 /* Set some basic padding to keep content from hitting the edges */
 .body-content {
-   /* padding-left: 15px;
+    /* padding-left: 15px;
     padding-right: 15px;
-*/}
+*/
+}
+
 .nav-link {
     letter-spacing: 2px;
 }
@@ -50,10 +54,9 @@ body {
     width: 100%;
 }
 
-/* QR code generator */
-#qrCode {
-    margin: 15px;
-}
+
+
+
 .full-width {
     width: 100vw;
     position: relative;
@@ -62,13 +65,15 @@ body {
     margin-left: -50vw;
     margin-right: -50vw;
 }
+
 #myCarousel .carousel-item img {
     object-fit: cover;
     object-position: center;
     height: 80%;
     overflow: hidden;
-  /*width:100%*/
+    /*width:100%*/
 }
+
 .carousel-mycaption {
     margin: 0;
     bottom: 65%;
@@ -81,6 +86,7 @@ body {
     box-shadow: 0 0 0 1px hsla(0,0%,100%,.3) inset, 0 .5em 1em rgba(0, 0, 0, 0.6);
     text-shadow: 0 1px 1px hsla(0,0%,100%,.3);
 }
+
     .carousel-mycaption > p {
         font-size: 5em;
     }
@@ -99,34 +105,32 @@ body {
     }
 
 
+
+
+
+
 .background-top {
     background-image: url('../images/192_home.png');
     background-repeat: no-repeat !important;
     background-size: cover !important;
-    /*background-position: center;*/
 }
-/*.websiteHomeContentHeader {
-    height: 63.9vw;
-}*/
+
 .content-panel {
-    /*position: absolute;*/
     padding-top: 30vh;
-    /* -webkit-transform: translate(-50%,-50%);
-    transform: translate(-50%,-50%);
-*/
     font-weight: 300;
     text-align: center;
 }
 
 .claim {
-    margin-bottom: 60px;
+    margin-bottom: 3em;
     font-size: 24px;
-    line-height: 30px;
+    line-height: 1em;
 }
+
 .content-heading {
-    margin-bottom: 60px;
+    margin-bottom: 3em;
     font-size: 60px;
-    line-height: 50px;
+    line-height: 2em;
     font-weight: 300;
     text-transform: uppercase;
 }
@@ -134,34 +138,44 @@ body {
 .place {
     margin-bottom: 0;
     font-size: 24px;
-    line-height: 30px;
+    line-height: 1em;
     letter-spacing: 2px;
 }
+
+
+
+
+
+
+
 
 .websiteContainer {
     position: relative;
     z-index: 3;
-    margin: 0 auto 50px;
-    margin-bottom: 50px;
-    padding: 25vw 20px 0;
+    margin: 0 auto 4em;
+    padding: 25vw 1em 0;
     width: 100%;
     max-width: 970px;
     box-sizing: border-box;
     text-align: center;
 }
+
     .websiteContainer ul {
         margin: 0;
         padding: 0;
         list-style-type: none;
     }
+
 .headingHero {
     font-weight: 400;
     font-size: 36px;
-    margin-bottom: 30px;
+    margin-bottom: 2em;
 }
+
 .websiteFont__hero {
     font-size: 18px;
 }
+
 .background-sep {
     background-image: url('../images/192_separator.png');
     background-repeat: no-repeat !important;
@@ -171,6 +185,7 @@ body {
     height: 40px;
     background-position: center;
 }
+
 .websiteFooterWelcome {
     background-image: url('../images/bg_t30_445106_c198246_footer.jpg');
     height: 50vh;
@@ -191,6 +206,7 @@ body {
     background-size: cover;
     background-position-x: center;
 }
+
 .websiteContainerAttendance {
     position: relative;
     z-index: 3;
@@ -221,19 +237,11 @@ body {
         object-position: center;
         height: 50vh;
         overflow: hidden;
-        /*width:100%*/
     }
-    
     /* Hide captions */
     .carousel-caption {
         display: none;
     }
-   /* .websiteHomeContentHeader {
-        height: 111.5vw;
-    }*/
-    .content-panel {
-        padding-top: 20vh;
-      }
     .content-heading {
         margin-bottom: 20px;
         font-size: 30px;
@@ -241,15 +249,16 @@ body {
         letter-spacing: 1.5px;
     }
 }
+
 @media screen and (min-width: 992px) {
     body {
         padding-top: 61px;
-        padding-bottom: 20px;
+        padding-bottom: 1em;
         font-family: Lato !important;
         font-weight: 400;
     }
-
 }
+
 @media screen and (min-width: 1220px) {
     .content-panel {
         padding-top: 40vh;
