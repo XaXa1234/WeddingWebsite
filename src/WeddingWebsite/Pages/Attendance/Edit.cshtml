@@ -16,20 +16,21 @@
     <div class="col">
         <form class="row g-3" method="post">
              <div class="col-md-6">
-                <label for="inputFirstName" class="form-label">First name</label>
-                <input type="text" class="form-control" id="inputFirstName" placeholder="the thing I use to call you">
+                <label asp-for="Input.FirsName" class="form-label">First name</label>
+                <input type="text" class="form-control" asp-for="Input.FirsName" placeholder="the thing I use to call you"  >
             </div>
             <div class="col-md-6">
-                <label for="inputLastName" class="form-label">Last name</label>
-                <input type="text" class="form-control" id="inputLastName" placeholder="the thing I use to call you when I don't know you">
+                <label asp-for="Input.LastName" class="form-label">Last name</label>
+                <input type="text" class="form-control" asp-for="Input.LastName" placeholder="the thing I use to call you when I don't know you">
             </div>
             <div class="col-sm-12 col-md-6">
-                <label for="inputTelephone" class="form-label">Phone</label>
-                <input type="text" class="form-control" id="inputTelephone" placeholder="in case we need to call you">
+                <label asp-for="Input.PhoneNumber" class="form-label">Phone</label>
+                <input type="text" class="form-control" asp-for="Input.PhoneNumber" placeholder="in case we need to call you">
             </div>
             <div class="mb-3">
-                <label for="exampleFormControlTextarea1" class="form-label">Anything else ?</label>
-                <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" placeholder="Vegan, food allergy etc.."></textarea>
+
+                <label asp-for="Input.Comment" class="form-label">Anything else ?</label>
+                <textarea class="form-control" asp-for="Input.Comment" rows="3" placeholder="Vegan, food allergy etc.."></textarea>
             </div>
             <div class="col-12">
                 <div class="form-check">

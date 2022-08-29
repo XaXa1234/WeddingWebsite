@@ -23,7 +23,8 @@
                 <span asp-validation-for="Input.Email" class="text-danger"></span>
             </div>
             <div class="col-12">
-                <button type="submit" class="btn btn-primary">Submit</button>
+                <button type="submit" class="btn btn-primary" asp-page-handler="coming">I'm coming'</button>
+                <button type="submit" class="btn btn-primary" asp-page-handler="notcoming">I'm not coming'</button>
             </div>
             <div asp-validation-summary="All" class="text-danger"></div>
         </form>

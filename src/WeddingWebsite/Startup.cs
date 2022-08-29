@@ -1,4 +1,3 @@
-using WeddingWebsite.Models;
 using WeddingWebsite.Services;
 
 namespace WeddingWebsite

@@ -21,14 +21,25 @@ namespace WeddingWebsite.Pages.Attendance
         {
             Input = new InputGuestIdentify();
         }
-        public async Task<IActionResult> OnPost()
+        public async Task<IActionResult> OnPostComing()
         {
             var guest = await rsvpService.FindRsvp(Input?.Email);
             if(guest == null)
                 ModelState.AddModelError(string.Empty, "Cannot find the email");
             if (!ModelState.IsValid)
                 return Page();
+            await rsvpService.IsComing(guest);
             return RedirectToPage("/Attendance/Edit", new { u=rsvpService.EncodeRsvpEmail(Input.Email) });
+        }
+        public async Task<IActionResult> OnPostNotComing()
+        {
+            var guest = await rsvpService.FindRsvp(Input?.Email);
+            if (guest == null)
+                ModelState.AddModelError(string.Empty, "Cannot find the email");
+            if (!ModelState.IsValid)
+                return Page();
+            await rsvpService.IsNotComing(guest);
+            return RedirectToPage("/Attendance/Finished");
         }
     }
     public class InputGuestIdentify
