@@ -1,6 +1,7 @@
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using System.ComponentModel.DataAnnotations;
+using WeddingWebsite.Models;
 using WeddingWebsite.Services;
 
 namespace WeddingWebsite.Pages.Attendance
@@ -33,9 +34,13 @@ namespace WeddingWebsite.Pages.Attendance
         }
         public async Task<IActionResult> OnPostNotComing()
         {
-            var guest = await rsvpService.FindRsvp(Input?.Email);
-            if (guest == null)
-                ModelState.AddModelError(string.Empty, "Cannot find the email");
+            RsvpGuest guest = null;
+            if (!string.IsNullOrEmpty(Input.Email))
+            {
+                guest = await rsvpService.FindRsvp(Input?.Email);
+                if (guest == null)
+                    ModelState.AddModelError(string.Empty, "Cannot find the email");
+            }
             if (!ModelState.IsValid)
                 return Page();
             await rsvpService.IsNotComing(guest);
