@@ -1,0 +1,31 @@
+﻿@page
+@model WeddingWebsite.Pages.Attendance.IdentifyModel
+@{
+    Layout = "_SubLayout";
+    ViewData["Title"] = "Identify";
+}
+
+
+<div class="row websiteContainerAttendance" data-color="">
+    <div class="col">
+        <div class="websiteFont__hero">
+            To confirm your attendance to the wedding, just enter your name and click on Search. Your will be redirected to the attendance page and then just tell whether or not you are coming (leaving a message is optional, but it's always nice) :)
+        </div>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col">
+        <form class="row g-3" method="post">
+            <div class="col-sm-12 col-md-6">
+                <label asp-for="Input.Email" class="form-label">Email</label>
+                <input type="email" class="form-control" asp-for="Input.Email" >
+                <span asp-validation-for="Input.Email" class="text-danger"></span>
+            </div>
+            <div class="col-12">
+                <button type="submit" class="btn btn-primary">Submit</button>
+            </div>
+            <div asp-validation-summary="All" class="text-danger"></div>
+        </form>
+    </div>
+</div>

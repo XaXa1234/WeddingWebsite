@@ -105,10 +105,12 @@ body {
     }
 
 
+/*Common*/
+.websiteFont__hero {
+    font-size: 18px;
+}
 
-
-
-
+/*Index page*/
 .background-top {
     background-image: url('../images/192_home.png');
     background-repeat: no-repeat !important;
@@ -143,12 +145,6 @@ body {
 }
 
 
-
-
-
-
-
-
 .websiteContainer {
     position: relative;
     z-index: 3;
@@ -172,9 +168,7 @@ body {
     margin-bottom: 2em;
 }
 
-.websiteFont__hero {
-    font-size: 18px;
-}
+
 
 .background-sep {
     background-image: url('../images/192_separator.png');
@@ -198,7 +192,7 @@ body {
 
 
 
-
+/*Attendance*/
 .websiteDecoration {
     background-image: url('../images/192_internal_block.png');
     position: relative;

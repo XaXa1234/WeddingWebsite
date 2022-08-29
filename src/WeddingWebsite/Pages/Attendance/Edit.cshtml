@@ -1,11 +1,9 @@
-﻿@page
-@model WeddingWebsite.Pages.AttendanceModel
+﻿@page "{u}"
+@model WeddingWebsite.Pages.Attendance.EditModel
 @{
+    Layout = "_SubLayout";
 }
 
-
-<div class="row websiteDecoration">
-</div>
 <div class="row websiteContainerAttendance" data-color="">
     <div class="col">
         <div class="websiteFont__hero">
@@ -16,22 +14,18 @@
 
 <div class="row">
     <div class="col">
-        <form class="row g-3">
-            <div class="col-md-6">
-                <label for="inputEmail4" class="form-label">Email</label>
-                <input type="email" class="form-control" id="inputEmail4"placeholder="something@something.other">
-            </div>
-            <div class="col-md-6">
-                <label for="inputTelephone" class="form-label">Phone</label>
-                <input type="text" class="form-control" id="inputTelephone" placeholder="in case we need to call you">
-            </div>
-            <div class="col-md-6">
+        <form class="row g-3" method="post">
+             <div class="col-md-6">
                 <label for="inputFirstName" class="form-label">First name</label>
                 <input type="text" class="form-control" id="inputFirstName" placeholder="the thing I use to call you">
             </div>
             <div class="col-md-6">
                 <label for="inputLastName" class="form-label">Last name</label>
                 <input type="text" class="form-control" id="inputLastName" placeholder="the thing I use to call you when I don't know you">
+            </div>
+            <div class="col-sm-12 col-md-6">
+                <label for="inputTelephone" class="form-label">Phone</label>
+                <input type="text" class="form-control" id="inputTelephone" placeholder="in case we need to call you">
             </div>
             <div class="mb-3">
                 <label for="exampleFormControlTextarea1" class="form-label">Anything else ?</label>
@@ -41,7 +35,7 @@
                 <div class="form-check">
                     <input class="form-check-input" type="checkbox" id="gridCheck">
                     <label class="form-check-label" for="gridCheck">
-                    I have a + 1    
+                        I have a + 1
                     </label>
                 </div>
             </div>
