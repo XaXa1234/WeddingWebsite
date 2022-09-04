@@ -26,6 +26,7 @@ namespace WeddingWebsite.Pages.Attendance
         
         public async Task<IActionResult> OnPostComing()
         {
+            throw new Exception("fdwefwlefj");
             RsvpGuest guest = null;
             if (!string.IsNullOrEmpty(Input.Email))
             {
