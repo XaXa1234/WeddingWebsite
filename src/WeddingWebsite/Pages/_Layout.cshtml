@@ -6,7 +6,10 @@
     <title>
         Patrice &amp; Xalbat - Wedding
     </title>
-    <environment include="Development">
+    <link rel="stylesheet" href="~/lib/bootstrap/css/bootstrap-reboot.css" />
+    <link rel="stylesheet" href="~/lib/bootstrap/css/bootstrap.css" />
+    <link rel="stylesheet" href="~/css/site.css" />
+   @* <environment include="Development">
         <link rel="stylesheet" href="~/lib/bootstrap/css/bootstrap-reboot.css" />
         <link rel="stylesheet" href="~/lib/bootstrap/css/bootstrap.css" />
         <link rel="stylesheet" href="~/css/site.css" />
@@ -15,7 +18,7 @@
         <link rel="stylesheet" href="~/lib/bootstrap/css/bootstrap-reboot.min.css" />
         <link rel="stylesheet" href="~/lib/bootstrap/css/bootstrap.min.css" />
         <link rel="stylesheet" href="~/css/site.min.css" asp-append-version="true" />
-    </environment>
+    </environment>*@
 </head>
 <body>
     <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
@@ -47,7 +50,10 @@
     <footer>
         <p>&copy; 2022 - XaXa</p>
     </footer>
-    <environment include="Development">
+    <script src="~/lib/jquery/jquery.js"></script>
+    <script src="~/lib/bootstrap/js/bootstrap.bundle.js"></script>
+    <script src="~/js/site.js" ></script>
+ @*   <environment include="Development">
         <script src="~/lib/jquery/jquery.js"></script>
         <script src="~/lib/bootstrap/js/bootstrap.bundle.js"></script>
         <script src="~/js/site.js" asp-append-version="true"></script>
@@ -56,7 +62,7 @@
         <script src="~/lib/jquery/jquery.min.js"></script>
         <script src="~/lib/bootstrap/js/bootstrap.bundle.min.js"></script>
         <script src="~/js/site.min.js" asp-append-version="true"></script>
-    </environment>
+    </environment>*@
     @RenderSection("Scripts", required: false)
 </body>
 </html>

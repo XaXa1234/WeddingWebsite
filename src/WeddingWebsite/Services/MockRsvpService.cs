@@ -4,7 +4,7 @@ namespace WeddingWebsite.Services
 {
     public class MockRsvpService : IRsvpService
     {
-        private RsvpGuest xaxa = new RsvpGuest() { Email = "urtizverea@hotmail.fr" };
+        private RsvpGuest xaxa = new RsvpGuest() { Email = "urtizverea@hotmail.fr", CanHaveGuest = true };
         public string DecodeRsvpEmail(string emailEncoded)
         {
             var base64EncodedBytes = Convert.FromBase64String(emailEncoded);

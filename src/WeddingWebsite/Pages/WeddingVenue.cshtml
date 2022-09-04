@@ -1,4 +1,37 @@
 ﻿@page
 @model WeddingWebsite.Pages.WeddingVenueModel
 @{
+    Layout = "_SubLayout";
+}
+
+<div class="row websiteContainerAttendance">
+    <div class="col">
+        <h1>Wedding Venue</h1>
+        <div class="websiteFont__hero">
+            We don't want you to miss our wedding. Here you will have the wedding ceremony and the wedding reception venues addresses in handy. No excuses for being late!
+        </div>
+    </div>
+</div>
+<hr class="small_hr" />
+
+<div class="row mt-5 justify-content-center">
+    <div class="col-md-6 weddingvenueaddress ">
+        <h2>Gaynes Park </h2>
+        <p class="fw-bold">Telephone 01992 660329</p>
+        <div class="websiteFont__hero">
+            Gaynes Park, Banks Lane, Coopersale
+            <br />
+            CM16 7RJ Epping, Essex
+        </div>
+    </div>
+    <div class="col-md-6">
+        <div id="mapgaynespark"></div>
+
+    </div>
+</div>
+
+
+@section Scripts {
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC730kPsZdAY0kzy8DkdcDHNmuo-GoSnvw&callback=initMap"
+        defer></script>
 }

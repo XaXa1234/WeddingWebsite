@@ -1,3 +1,6 @@
+using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Configuration;
+using WeddingWebsite.Db;
 using WeddingWebsite.Services;
 
 namespace WeddingWebsite
@@ -14,8 +17,16 @@ namespace WeddingWebsite
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddSingleton<IRsvpService, MockRsvpService>();
+            var serverVersion = new MySqlServerVersion(new Version(8, 0));
+            string connectionString = Configuration.GetConnectionString("DefaultConnection");
+            services.AddDbContext<ApplicationDbContext>(options =>
+                options.UseMySql(connectionString, serverVersion));
+
+            services.AddScoped<IApplicationDbContext>(provider => provider.GetService<ApplicationDbContext>());
+            services.AddScoped<IRsvpService, RsvpService>();
             services.AddRazorPages();
+            //services.AddDataProtection()
+            //             .PersistKeysToDbContext<ApplicationDbContext>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

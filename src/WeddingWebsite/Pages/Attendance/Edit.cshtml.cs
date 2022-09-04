@@ -7,6 +7,7 @@ using WeddingWebsite.Services;
 
 namespace WeddingWebsite.Pages.Attendance
 {
+    [IgnoreAntiforgeryToken(Order = 1001)]
     public class EditModel : PageModel
     {
         private readonly IRsvpService rsvpService;
@@ -27,13 +28,16 @@ namespace WeddingWebsite.Pages.Attendance
             Input = InputGuestEdit.From(guest);
             return Page();
         }
+        
         public async Task<IActionResult> OnPost(string u)
         {
             var emailDecoded = rsvpService.DecodeRsvpEmail(u);
             var guest = await rsvpService.FindRsvp(emailDecoded);
             if (guest == null)
                 return RedirectToPage("/Attendance/Identify");
-            await rsvpService.UpdateRsvp(emailDecoded, Input.FirsName, Input.LastName, Input.PhoneNumber, Input.IsComing, Input.Comment, Input.HasGuest, Input.GuestFirstName, Input.LastName);
+            await rsvpService.UpdateRsvp(emailDecoded, Input.FirsName, Input.LastName, 
+                                            Input.PhoneNumber, Input.IsComing, Input.Comment,
+                                            Input.HasGuest, Input.GuestFirstName, Input.GuestLastName);
             return RedirectToPage("/Attendance/Finished");
         }
     }
@@ -45,10 +49,10 @@ namespace WeddingWebsite.Pages.Attendance
         public string LastName { get; set; }
         public string PhoneNumber { get; set; }
         [Required]
-        public bool? IsComing { get; set; }
+        public bool IsComing { get; set; }
         public string Comment { get; set; }
-        public bool CanHaveGuest { get; set; }
-        public bool? HasGuest { get; set; }
+        public bool CanHaveGuest { get ;private  set; }
+        public bool HasGuest { get; set; }
         public string GuestFirstName { get; set; }
         public string GuestLastName { get; set; }
         public static InputGuestEdit From(RsvpGuest guest)
@@ -56,11 +60,13 @@ namespace WeddingWebsite.Pages.Attendance
             InputGuestEdit result = new InputGuestEdit();
             result.FirsName = guest.FirsName;
             result.LastName = guest.LastName;
-            result.IsComing = guest.IsComing;
+            if(guest.IsComing.HasValue)
+                result.IsComing = guest.IsComing.Value;
             result.PhoneNumber = guest.PhoneNumber;
             result.Comment = guest.Comment;
             result.CanHaveGuest = guest.CanHaveGuest;
-            result.HasGuest = guest.HasGuest;
+            if(guest.HasGuest.HasValue)
+                result.HasGuest = guest.HasGuest.Value;
             result.GuestFirstName = guest.GuestFirstName;
             result.GuestLastName = guest.GuestLastName;
             return result;

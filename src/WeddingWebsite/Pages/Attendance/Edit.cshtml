@@ -32,24 +32,25 @@
                 <label asp-for="Input.Comment" class="form-label">Anything else ?</label>
                 <textarea class="form-control" asp-for="Input.Comment" rows="3" placeholder="Vegan, food allergy etc.."></textarea>
             </div>
-            <div class="col-12">
-                <div class="form-check">
-                    <input class="form-check-input" type="checkbox" id="gridCheck">
-                    <label class="form-check-label" for="gridCheck">
-                        I have a + 1
-                    </label>
+            @if(Model.Input.CanHaveGuest)
+            {
+                <div class="col-12">
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" asp-for="Input.HasGuest">
+                        <label class="form-check-label" for="gridCheck" asp-for="Input.HasGuest">
+                            I am coming with someone
+                        </label>
+                    </div>
                 </div>
-            </div>
-            <div id="ShowHideMe" style="display:none">
-                 <div class="col-md-6">
-                <label asp-for="Input.FirsName" class="form-label">First name</label>
-                <input type="text" class="form-control" asp-for="Input.FirsName" placeholder="the thing I use to call you"  >
-            </div>
-            <div class="col-md-6">
-                <label asp-for="Input.LastName" class="form-label">Last name</label>
-                <input type="text" class="form-control" asp-for="Input.LastName" placeholder="the thing I use to call you when I don't know you">
-            </div>
-            </div>
+                <div class="col-md-6 guestinfo">
+                        <label asp-for="Input.GuestFirstName" class="form-label">Your Guest First name</label>
+                        <input type="text" class="form-control" asp-for="Input.GuestFirstName" placeholder="the thing I use to call you">
+                    </div>
+                <div class="col-md-6 guestinfo">
+                        <label asp-for="Input.GuestLastName" class="form-label">Your Guest Last name</label>
+                        <input type="text" class="form-control" asp-for="Input.GuestLastName" placeholder="the thing I use to call you when I don't know you">
+                    </div>
+            }
             <div class="col-12">
                 <button type="submit" class="btn btn-primary">Submit</button>
             </div>

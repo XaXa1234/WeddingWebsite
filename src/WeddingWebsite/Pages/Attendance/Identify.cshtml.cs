@@ -6,6 +6,7 @@ using WeddingWebsite.Services;
 
 namespace WeddingWebsite.Pages.Attendance
 {
+    [IgnoreAntiforgeryToken(Order = 1001)]
     public class IdentifyModel : PageModel
     {
         private readonly IRsvpService rsvpService;
@@ -22,11 +23,16 @@ namespace WeddingWebsite.Pages.Attendance
         {
             Input = new InputGuestIdentify();
         }
+        
         public async Task<IActionResult> OnPostComing()
         {
-            var guest = await rsvpService.FindRsvp(Input?.Email);
-            if(guest == null)
-                ModelState.AddModelError(string.Empty, "Cannot find the email");
+            RsvpGuest guest = null;
+            if (!string.IsNullOrEmpty(Input.Email))
+            {
+                guest = await rsvpService.FindRsvp(Input?.Email);
+                if (guest == null)
+                    ModelState.AddModelError(string.Empty, "Cannot find the email");
+            }
             if (!ModelState.IsValid)
                 return Page();
             await rsvpService.IsComing(guest);

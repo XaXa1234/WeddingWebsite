@@ -2,21 +2,21 @@
     font-family: Lato;
     font-style: normal;
     font-weight: 400;
-    src: url(/fonts/Lato-Light.ttf);
+    src: url(/fonts/Lato-Light.ttf),url(fonts/Lato-Light.ttf);
 }
 
 @font-face {
     font-family: Lato;
     font-style: italic;
     font-weight: 400;
-    src: url(/fonts/Lato-LightItalic.ttf);
+    src: url(/fonts/Lato-LightItalic.ttf),url(fonts/Lato-LightItalic.ttf);
 }
 
 @font-face {
     font-family: Lato;
     font-style: normal;
     font-weight: 600;
-    src: url(/fonts/Lato-Bold.ttf);
+    src: url(/fonts/Lato-Bold.ttf),url(fonts/Lato-Bold.ttf);
 }
 
 * {
@@ -218,12 +218,21 @@ body {
 
 
 
-
-
-
-
-
-
+/*weeding venue*/
+.small_hr {
+    width: 150px;
+    margin: auto;
+}
+#mapgaynespark {
+    height: 400px;
+    /* The height is 400 pixels */
+    width: 100%;
+    /* The width is the width of the web page */
+}
+.weddingvenueaddress{
+    margin: auto;
+    text-align:center;
+}
 /* Hide/rearrange for smaller screens */
 @media screen and (max-width: 767px) {
     #myCarousel .carousel-item img {
