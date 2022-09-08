@@ -2,21 +2,21 @@
     font-family: Lato;
     font-style: normal;
     font-weight: 400;
-    src: url(fonts/Lato-Light.ttf);
+    src: url(../fonts/Lato-Light.ttf);
 }
 
 @font-face {
     font-family: Lato;
     font-style: italic;
     font-weight: 400;
-    src: url(fonts/Lato-LightItalic.ttf);
+    src: url(../fonts/Lato-LightItalic.ttf);
 }
 
 @font-face {
     font-family: Lato;
     font-style: normal;
     font-weight: 600;
-    src: url(fonts/Lato-Bold.ttf);
+    src: url(../fonts/Lato-Bold.ttf);
 }
 
 * {

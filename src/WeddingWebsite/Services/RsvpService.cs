@@ -25,7 +25,7 @@ namespace WeddingWebsite.Services
             return Convert.ToBase64String(plainTextBytes);
         }
 
-        public async Task<RsvpGuest> FindRsvp(string email)
+        public async Task<RsvpGuest?> FindRsvp(string? email)
         {
             return await dbContext.RsvpGuests.FirstOrDefaultAsync(r => r.Email == email);
         }

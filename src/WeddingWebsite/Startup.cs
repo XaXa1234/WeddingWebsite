@@ -1,6 +1,12 @@
+using Microsoft.AspNetCore.Mvc.Razor;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
+using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.DependencyInjection.Extensions;
+using Microsoft.Extensions.Options;
 using WeddingWebsite.Db;
+using WeddingWebsite.Extensions;
+using WeddingWebsite.RouteModelConventions;
 using WeddingWebsite.Services;
 
 namespace WeddingWebsite
@@ -17,16 +23,20 @@ namespace WeddingWebsite
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            var serverVersion = new MySqlServerVersion(new Version(8, 0));
-            string connectionString = Configuration.GetConnectionString("DefaultConnection");
-            services.AddDbContext<ApplicationDbContext>(options =>
-                options.UseMySql(connectionString, serverVersion));
+            services.AddMySql(Configuration);
 
+            services.AddMyLocalization(Configuration);
             services.AddScoped<IApplicationDbContext>(provider => provider.GetService<ApplicationDbContext>());
             services.AddScoped<IRsvpService, RsvpService>();
-            services.AddRazorPages();
-            //services.AddDataProtection()
-            //             .PersistKeysToDbContext<ApplicationDbContext>();
+
+            services.TryAddSingleton<IHttpContextAccessor, HttpContextAccessor>();
+            services.AddRouting(options =>
+            {
+                options.LowercaseUrls = true;
+                options.LowercaseQueryStrings = false;
+            });
+            services.AddRazorPages(options =>options.Conventions.Add(new CultureTemplatePageRouteModelConvention()))
+                                                    .AddViewLocalization(LanguageViewLocationExpanderFormat.Suffix);
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -47,9 +57,9 @@ namespace WeddingWebsite
             app.UseStaticFiles();
 
             app.UseRouting();
-
+            var options = app.ApplicationServices.GetService<IOptions<RequestLocalizationOptions>>();
+            app.UseRequestLocalization(options.Value);
             app.UseAuthorization();
-
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapRazorPages();

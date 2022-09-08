@@ -4,7 +4,7 @@ namespace WeddingWebsite.Services
 {
     public class MockRsvpService : IRsvpService
     {
-        private RsvpGuest xaxa = new RsvpGuest() { Email = "urtizverea@hotmail.fr", CanHaveGuest = true };
+        private RsvpGuest? xaxa = new RsvpGuest() { Email = "urtizverea@hotmail.fr", CanHaveGuest = true };
         public string DecodeRsvpEmail(string emailEncoded)
         {
             var base64EncodedBytes = Convert.FromBase64String(emailEncoded);
@@ -17,30 +17,30 @@ namespace WeddingWebsite.Services
             return Convert.ToBase64String(plainTextBytes);
         }
 
-        public Task<RsvpGuest> FindRsvp(string email)
+        public Task<RsvpGuest?> FindRsvp(string? email)
         {
-            if (email == xaxa.Email)
+            if (email == xaxa?.Email)
                 return Task.FromResult(xaxa);
             return Task.FromResult(default(RsvpGuest));
         }
 
-        public async Task IsComing(string email)
+        public async Task IsComing(string? email)
         {
             var guest = await FindRsvp(email);
-            IsComing(guest);
+            await IsComing(guest);
         }
 
-        public Task IsComing(RsvpGuest guest)
+        public Task IsComing(RsvpGuest? guest)
         {
             if (guest == null) throw new Exception("Cannot find the guest");
             guest.IsComing = true;
             return Task.CompletedTask;
         }
 
-        public async Task IsNotComing(string email)
+        public async Task IsNotComing(string? email)
         {
             var guest = await FindRsvp(email);
-            IsComing(guest);
+           await IsComing(guest);
         }
 
         public Task IsNotComing(RsvpGuest guest)

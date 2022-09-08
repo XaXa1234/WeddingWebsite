@@ -29,9 +29,115 @@
 
     </div>
 </div>
+<div class="row background-sep m-4">
+</div>
+<div class="row websiteContainerAttendance">
+    <div class="col">
+        <h1>Accomodations</h1>
+    </div>
+</div>
+<div class="row mt-5 justify-content-center">
+    @foreach (var PlaceToSleep in Model.PlaceToSleeps)
+    {
+        <div class="col-md-6 weddingvenueaddress ">
+            <div class="card m-3">
+                <div class="card-header">
+                    <h2>@PlaceToSleep.Name</h2>
+                </div>
+                <div class="card-body">
+                    <h5 class="card-title">@PlaceToSleep.Adress</h5>
+                    <h5 class="card-title">@PlaceToSleep.PostCode, @PlaceToSleep.City</h5>
+                    <p class="card-text">@PlaceToSleep.Phone</p>
+                    <a href="#" class="btn btn-primary">View on the map</a>
+                </div>
+            </div>
 
+            @*   <p class="fw-bold">Telephone @PlaceToSleep.Phone</p>
+        <div class="websiteFont__hero">
+        @PlaceToSleep.Adress
+        <br />
+        @PlaceToSleep.PostCode, @PlaceToSleep.City
+        </div>*@
+        </div>
+        @*  <div class="col-md-6">
+    <div id="mapgaynespark"></div>
+
+    </div>*@
+    }
+
+</div>
 
 @section Scripts {
+    <script type="text/javascript">
+
+        // Some JavaScript code here to display map, etc.
+        // Declare addMarker function
+        function addMarker(latitude, longitude, Name, Adress, PostCode, City, Phone, map) {
+            var latLng = new google.maps.LatLng(latitude, longitude);
+            //var contentString = '<div class="card m-3" ><div class="card-header" ><h2>' + Name + '</h2></div> <div class="card-body" ><h5 class="card-title" > ' + Adress + '</h5> <h5 class="card-title">' + PostCode + ', ' + City + '</h5><p class="card-text">' + Phone + '</p></div> < /div>';
+            var contentString = '<h5>' + Name + '</h5>';
+
+            var infowindow = new google.maps.InfoWindow({
+                content: contentString
+            });
+
+            var marker = new google.maps.Marker({
+                position: latLng,
+                title: Name,
+                map: map,
+                draggable: false,
+                icon: '../icons/lodging-2.png'
+            });
+
+            google.maps.event.addListener(marker, 'click', function () {
+                infowindow.open(map, marker);
+            });
+        }
+
+        function initMap() {
+            const gaynes = { lat: 51.69589748304985, lng: 0.14796475731150335 };
+            // The map, centered at Uluru
+            const map = new google.maps.Map(document.getElementById("mapgaynespark"), {
+                zoom: 10,
+                center: gaynes,
+            });
+            const svgMarker = {
+                //path: "M10.453 14.016l6.563-6.609-1.406-1.406-5.156 5.203-2.063-2.109-1.406 1.406zM12 2.016q2.906 0 4.945 2.039t2.039 4.945q0 1.453-0.727 3.328t-1.758 3.516-2.039 3.070-1.711 2.273l-0.75 0.797q-0.281-0.328-0.75-0.867t-1.688-2.156-2.133-3.141-1.664-3.445-0.75-3.375q0-2.906 2.039-4.945t4.945-2.039z",
+                fillColor: "#F44336",
+                fillOpacity: 0.6,
+                strokeWeight: 0,
+                rotation: 0,
+                scale: 2,
+                anchor: new google.maps.Point(15, 30),
+                //url: "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAYAAABXAvmHAAAABmJLR0QA/wD/AP+gvaeTAAACoElEQVRoge2Zz2scZRyHn6+lINgivVTBNSQaoYfqQRCklKLebNAEFJOCvZUejXgQvKn/QU+l0B7bQ6GHqEfBU2+9tFQNKBJIEFOobW21P8zu42F2lne3m7o7O7uTwzyXfedl+M7zmXd33vedhZqampoqiUFOUqeAeWAOmAYawC7gT+Aa8ANwMSLWBqw3A3wEvA28BuwDmsAGsAZ8B6xExPowYfpdqKGeU7f8f7bU8+qLT6g3pV4Yot5Z9YWi8gvq3QEu1Mtf6mKfesdGqPf+sPLLarPAxXJa6qdJvc/afUVpqp8Mc+dHkU9DLKpLI8rnNO0zEtEj3wB+BvYMNWTbc7f9ubfEegci4ve846meE76mPHnIxMuSz+t9lXZ0RsDsUfkb2eNxJ9MEpiNiA7pHYIGdLw+Z43x+kAZ4d/IuhTmaN9IAsxWIFOXlvJEGeL4CkaJ0Zuc0QKsCkaI080YaYKMCkaJ0XNMAP1YgUpSf8kYaYKUCkaJ0XNOJ7FmyoSlzJh4H/wCNiLgFyQhExB3gdFVWQ3A6l4fHF3P7gV8pd/1SJn8DsxHxR97RtZiLiBvA55O2GoIvUnnosydWA/geeGdSVgNyGTgSEV3zVd9NvfoccIVs874T2ATe6LfJ790PABARm8AHwIMxiw3CI+DDQm8o1PfUf0vYDhalqS6NFF/92HL2yMPSUk+OJJ+EWFDvT1B+Sz1RinwS4i319gTk76lzpconIQ6q62OUv6keGot8EmJavToG+VX1lbHKJyGeVk+VKH/JbDE5WdTjZt/ZojxQlycu3hPiVfV6AflV9fVK5XPU3eqXDvbavKWeUZ+p2vsx1Dfbd3Y7flEPV+35RNqjsWz3fwEPzX70O++ub4c6o36jfqu+VLVPTU1NzXj4D6b9ZhwndpxtAAAAAElFTkSuQmCC",
+            };
+            var contentString = '<h3><bold>Gaynes Park</bold></h3>';
+
+            var infowindow = new google.maps.InfoWindow({
+                content: contentString
+            });
+
+            var mm = new google.maps.Marker({
+                position: gaynes,
+                icon: svgMarker,
+                map: map,
+                //fillColor: 'F44336',
+                title: "Gaynes Park",
+                //icon: "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAYAAABXAvmHAAAABmJLR0QA/wD/AP+gvaeTAAACoElEQVRoge2Zz2scZRyHn6+lINgivVTBNSQaoYfqQRCklKLebNAEFJOCvZUejXgQvKn/QU+l0B7bQ6GHqEfBU2+9tFQNKBJIEFOobW21P8zu42F2lne3m7o7O7uTwzyXfedl+M7zmXd33vedhZqampoqiUFOUqeAeWAOmAYawC7gT+Aa8ANwMSLWBqw3A3wEvA28BuwDmsAGsAZ8B6xExPowYfpdqKGeU7f8f7bU8+qLT6g3pV4Yot5Z9YWi8gvq3QEu1Mtf6mKfesdGqPf+sPLLarPAxXJa6qdJvc/afUVpqp8Mc+dHkU9DLKpLI8rnNO0zEtEj3wB+BvYMNWTbc7f9ubfEegci4ve846meE76mPHnIxMuSz+t9lXZ0RsDsUfkb2eNxJ9MEpiNiA7pHYIGdLw+Z43x+kAZ4d/IuhTmaN9IAsxWIFOXlvJEGeL4CkaJ0Zuc0QKsCkaI080YaYKMCkaJ0XNMAP1YgUpSf8kYaYKUCkaJ0XNOJ7FmyoSlzJh4H/wCNiLgFyQhExB3gdFVWQ3A6l4fHF3P7gV8pd/1SJn8DsxHxR97RtZiLiBvA55O2GoIvUnnosydWA/geeGdSVgNyGTgSEV3zVd9NvfoccIVs874T2ATe6LfJ790PABARm8AHwIMxiw3CI+DDQm8o1PfUf0vYDhalqS6NFF/92HL2yMPSUk+OJJ+EWFDvT1B+Sz1RinwS4i319gTk76lzpconIQ6q62OUv6keGot8EmJavToG+VX1lbHKJyGeVk+VKH/JbDE5WdTjZt/ZojxQlycu3hPiVfV6AflV9fVK5XPU3eqXDvbavKWeUZ+p2vsx1Dfbd3Y7flEPV+35RNqjsWz3fwEPzX70O++ub4c6o36jfqu+VLVPTU1NzXj4D6b9ZhwndpxtAAAAAElFTkSuQmCC"
+
+            });
+            google.maps.event.addListener(mm, 'click', function () {
+                infowindow.open(map, mm);
+            });
+        @foreach (var item in Model.PlaceToSleeps)
+        {
+            @:addMarker(@item.lat, @item.lon, '@item.Name', '@item.Adress', '@item.PostCode', '@item.City', '@item.Phone', map);
+        }
+                                }
+
+        window.initMap = initMap;
+
+    </script>
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC730kPsZdAY0kzy8DkdcDHNmuo-GoSnvw&callback=initMap"
         defer></script>
 }

@@ -26,7 +26,7 @@ namespace WeddingWebsite.Pages.Attendance
         
         public async Task<IActionResult> OnPostComing()
         {
-            throw new Exception("fdwefwlefj");
+            //throw new Exception("fdwefwlefj");
             RsvpGuest guest = null;
             if (!string.IsNullOrEmpty(Input.Email))
             {
@@ -37,7 +37,8 @@ namespace WeddingWebsite.Pages.Attendance
             if (!ModelState.IsValid)
                 return Page();
             await rsvpService.IsComing(guest);
-            return RedirectToPage("/Attendance/Edit", new { u=rsvpService.EncodeRsvpEmail(Input.Email) });
+            var cul = HttpContext.Request.RouteValues.GetValueOrDefault("culture");
+            return RedirectToPage("/Attendance/Edit", new { u=rsvpService.EncodeRsvpEmail(Input.Email), culture = cul });
         }
         public async Task<IActionResult> OnPostNotComing()
         {

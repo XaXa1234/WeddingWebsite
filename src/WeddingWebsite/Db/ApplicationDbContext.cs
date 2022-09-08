@@ -6,6 +6,7 @@ namespace WeddingWebsite.Db
     public class ApplicationDbContext : DbContext,  IApplicationDbContext
     {
         public DbSet<RsvpGuest> RsvpGuests { get; set; }
+        public DbSet<PlaceToSleep> PlaceToSleeps { get; set; }
         public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options)
     : base(options)
         { }
