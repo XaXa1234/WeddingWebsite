@@ -24,21 +24,28 @@ namespace WeddingWebsite.Pages.Attendance
             var emailDecoded =  rsvpService.DecodeRsvpEmail(u);
             var guest = await rsvpService.FindRsvp(emailDecoded);
             if (guest == null)
-                return RedirectToPage("/Attendance/Identify");
+            {
+                var cul = HttpContext.Request.RouteValues.GetValueOrDefault("culture");
+                return RedirectToPage("/Attendance/Identify", new { culture = cul });
+            }
             Input = InputGuestEdit.From(guest);
             return Page();
         }
         
         public async Task<IActionResult> OnPost(string u)
         {
+            var cul = HttpContext.Request.RouteValues.GetValueOrDefault("culture");
             var emailDecoded = rsvpService.DecodeRsvpEmail(u);
             var guest = await rsvpService.FindRsvp(emailDecoded);
             if (guest == null)
-                return RedirectToPage("/Attendance/Identify");
+            {
+                
+                return RedirectToPage("/Attendance/Identify", new { culture = cul });
+            }
             await rsvpService.UpdateRsvp(emailDecoded, Input.FirsName, Input.LastName, 
                                             Input.PhoneNumber, Input.IsComing, Input.Comment,
                                             Input.HasGuest, Input.GuestFirstName, Input.GuestLastName);
-            return RedirectToPage("/Attendance/Finished");
+            return RedirectToPage("/Attendance/Finished", new { culture = cul });
         }
     }
     public class InputGuestEdit

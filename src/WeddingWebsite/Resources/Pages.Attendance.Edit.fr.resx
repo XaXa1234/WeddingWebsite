@@ -117,37 +117,49 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="As we wait for" xml:space="preserve">
-    <value>As we wait for the big day to arrive, we have created this website with lots of sections to keep you up-to-date of everything and to share our love story.</value>
+  <data name="Anything else ?" xml:space="preserve">
+    <value>Rien d'autre ?</value>
   </data>
-  <data name="Enjoy the site and see you soon, lots of love!" xml:space="preserve">
-    <value>Enjoy the site and see you soon, lots of love!</value>
+  <data name="First name" xml:space="preserve">
+    <value>Prenom</value>
   </data>
-  <data name="Just one important thing" xml:space="preserve">
-    <value>Just one important thing, in the attendance section you can confirm whether or not you will be at our wedding with us. Please, confirm as soon as possible, so we can arrange everything much faster.</value>
+  <data name="I am coming with someone" xml:space="preserve">
+    <value>Je viens avec quelqu'un</value>
   </data>
-  <data name="SaveTheDate" xml:space="preserve">
-    <value>Save The Date</value>
+  <data name="Last name" xml:space="preserve">
+    <value>Nom De Famille</value>
   </data>
-  <data name="We are so excited" xml:space="preserve">
-    <value>We are so excited! We are in cloud nine and we want to share our love with you. We are planning a wedding that will make history, in which you will have lots of fun.</value>
+  <data name="Phone" xml:space="preserve">
+    <value>Telephonne</value>
   </data>
-  <data name="WeddingDate" xml:space="preserve">
-    <value>17 September 2023</value>
+  <data name="Please enter your First Name" xml:space="preserve">
+    <value>Entrez votre prenom</value>
   </data>
-  <data name="WeddingDate1" xml:space="preserve">
-    <value>17th</value>
+  <data name="Please enter your Guest First Name" xml:space="preserve">
+    <value>Entrez votre invite prenom </value>
   </data>
-  <data name="WeddingDate2" xml:space="preserve">
-    <value>September, 2023</value>
+  <data name="Please enter your Guest Last Name" xml:space="preserve">
+    <value>Entrez votre invite nom de famille</value>
   </data>
-  <data name="WeddingWelcome" xml:space="preserve">
-    <value>Welcome to our wedding!</value>
+  <data name="Please enter your information" xml:space="preserve">
+    <value>Svp Remplissez le Formulaire</value>
   </data>
-  <data name="WereGettingMarried" xml:space="preserve">
-    <value>We're Getting Married!</value>
+  <data name="Please enter your Last Name" xml:space="preserve">
+    <value>Entrez votre nom de famille</value>
   </data>
-  <data name="Yes! We are getting married!" xml:space="preserve">
-    <value>Yes! We are getting married!</value>
+  <data name="Please enter your Phone Number" xml:space="preserve">
+    <value>Entrez votre telephonne</value>
+  </data>
+  <data name="Submit" xml:space="preserve">
+    <value>Envoyer</value>
+  </data>
+  <data name="Vegan, food allergy etc.." xml:space="preserve">
+    <value>Vegan,allergies etc...</value>
+  </data>
+  <data name="Your Guest First name" xml:space="preserve">
+    <value>Votre Invite Prenom</value>
+  </data>
+  <data name="Your Guest Last name" xml:space="preserve">
+    <value>Votre Invite Nom de Famille</value>
   </data>
 </root>

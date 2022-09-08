@@ -52,7 +52,8 @@ namespace WeddingWebsite.Pages.Attendance
             if (!ModelState.IsValid)
                 return Page();
             await rsvpService.IsNotComing(guest);
-            return RedirectToPage("/Attendance/Finished");
+            var cul = HttpContext.Request.RouteValues.GetValueOrDefault("culture");
+            return RedirectToPage("/Attendance/Finished", new { culture = cul });
         }
     }
     public class InputGuestIdentify

@@ -1,5 +1,6 @@
 ﻿@page
 @model WeddingWebsite.Pages.Attendance.FinishedModel
+@inject IViewLocalizer Localizer
 @{
     Layout = "_SubLayout";
 }
@@ -7,7 +8,7 @@
 <div class="row websiteContainerAttendance" data-color="">
     <div class="col">
         <div class="websiteFont__hero">
-            Thank you for your answer.
+            @Localizer["Thank you for your answer."]
         </div>
     </div>
 </div>

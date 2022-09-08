@@ -1,12 +1,13 @@
 ﻿@page
 @model ErrorModel
+@inject IViewLocalizer Localizer
 @{
     Layout = "_SubLayout";
     ViewData["Title"] = "Error";
 }
 
-<h1 class="text-danger">Error.</h1>
-<h2 class="text-danger">Oooooooops an error happened ! Sorry for that </h2>
+<h1 class="text-danger">@Localizer["Error."]</h1>
+<h2 class="text-danger">@Localizer["Oooooooops an error happened ! Sorry for that"] </h2>
 
 @*@if (Model.ShowRequestId)
 {

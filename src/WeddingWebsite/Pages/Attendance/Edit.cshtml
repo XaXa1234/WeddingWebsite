@@ -1,5 +1,6 @@
 ﻿@page 
 @model WeddingWebsite.Pages.Attendance.EditModel
+@inject IViewLocalizer Localizer
 @{
     Layout = "_SubLayout";
 }
@@ -7,7 +8,7 @@
 <div class="row websiteContainerAttendance" data-color="">
     <div class="col">
         <div class="websiteFont__hero">
-            To confirm your attendance to the wedding, just enter your name and click on Search. Your name will appear and then just tell whether or not you are coming (leaving a message is optional, but it's always nice) :)
+            @Localizer["Please enter your information"]
         </div>
     </div>
 </div>
@@ -16,21 +17,21 @@
     <div class="col">
         <form class="row g-3" method="post">
              <div class="col-md-6">
-                <label asp-for="Input.FirsName" class="form-label">First name</label>
-                <input type="text" class="form-control" asp-for="Input.FirsName" placeholder="the thing I use to call you"  >
+                <label asp-for="Input.FirsName" class="form-label">@Localizer["First name"]</label>
+                <input type="text" class="form-control" asp-for="Input.FirsName" placeholder="@Localizer["Please enter your First Name"]">
             </div>
             <div class="col-md-6">
-                <label asp-for="Input.LastName" class="form-label">Last name</label>
-                <input type="text" class="form-control" asp-for="Input.LastName" placeholder="the thing I use to call you when I don't know you">
+                <label asp-for="Input.LastName" class="form-label">@Localizer["Last name"]</label>
+                <input type="text" class="form-control" asp-for="Input.LastName" placeholder="@Localizer["Please enter your Last Name"]">
             </div>
             <div class="col-sm-12 col-md-6">
-                <label asp-for="Input.PhoneNumber" class="form-label">Phone</label>
-                <input type="text" class="form-control" asp-for="Input.PhoneNumber" placeholder="in case we need to call you">
+                <label asp-for="Input.PhoneNumber" class="form-label">@Localizer["Phone"]</label>
+                <input type="text" class="form-control" asp-for="Input.PhoneNumber" placeholder="@Localizer["Please enter your Phone Number"]">
             </div>
             <div class="mb-3">
 
-                <label asp-for="Input.Comment" class="form-label">Anything else ?</label>
-                <textarea class="form-control" asp-for="Input.Comment" rows="3" placeholder="Vegan, food allergy etc.."></textarea>
+                <label asp-for="Input.Comment" class="form-label">@Localizer["Anything else ?"]</label>
+                <textarea class="form-control" asp-for="Input.Comment" rows="3" placeholder="@Localizer["Vegan, food allergy etc.."]"></textarea>
             </div>
             @if(Model.Input.CanHaveGuest)
             {
@@ -38,21 +39,21 @@
                     <div class="form-check">
                         <input class="form-check-input" type="checkbox" asp-for="Input.HasGuest">
                         <label class="form-check-label" for="gridCheck" asp-for="Input.HasGuest">
-                            I am coming with someone
+                            @Localizer["I am coming with someone"]
                         </label>
                     </div>
                 </div>
                 <div class="col-md-6 guestinfo">
-                        <label asp-for="Input.GuestFirstName" class="form-label">Your Guest First name</label>
-                        <input type="text" class="form-control" asp-for="Input.GuestFirstName" placeholder="the thing I use to call you">
+                    <label asp-for="Input.GuestFirstName" class="form-label">@Localizer["Your Guest First name"]</label>
+                    <input type="text" class="form-control" asp-for="Input.GuestFirstName" placeholder="@Localizer["Please enter your Guest First Name"]">
                     </div>
                 <div class="col-md-6 guestinfo">
-                        <label asp-for="Input.GuestLastName" class="form-label">Your Guest Last name</label>
-                        <input type="text" class="form-control" asp-for="Input.GuestLastName" placeholder="the thing I use to call you when I don't know you">
+                    <label asp-for="Input.GuestLastName" class="form-label">@Localizer["Your Guest Last name"]</label>
+                    <input type="text" class="form-control" asp-for="Input.GuestLastName" placeholder="@Localizer["Please enter your Guest Last Name"]">
                     </div>
             }
             <div class="col-12">
-                <button type="submit" class="btn btn-primary">Submit</button>
+                <button type="submit" class="btn btn-primary">@Localizer["Submit"]</button>
             </div>
         </form>
     </div>
