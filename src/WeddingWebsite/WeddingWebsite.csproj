@@ -12,6 +12,12 @@
     <PublishReadyToRun>true</PublishReadyToRun>
   </PropertyGroup>
   <ItemGroup>
+    <EmbeddedResource Remove="Resources\Pages.Attendance.Finished.en-GB.resx" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Pages.Attendance.Finished.en-GB.resx" />
+  </ItemGroup>
+  <ItemGroup>
     <PackageReference Include="Amazon.Lambda.AspNetCoreServer" Version="7.2.0" />
     <PackageReference Include="Microsoft.EntityFrameworkCore" Version="6.0.8" />
     <PackageReference Include="Pomelo.EntityFrameworkCore.MySql" Version="6.0.2" />

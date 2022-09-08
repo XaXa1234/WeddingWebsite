@@ -1,14 +1,15 @@
 ﻿@page
 @model WeddingWebsite.Pages.WeddingVenueModel
+@inject IViewLocalizer Localizer
 @{
     Layout = "_SubLayout";
 }
 
 <div class="row websiteContainerAttendance">
     <div class="col">
-        <h1>Wedding Venue</h1>
+        <h1>@Localizer["Wedding Venue"]</h1>
         <div class="websiteFont__hero">
-            We don't want you to miss our wedding. Here you will have the wedding ceremony and the wedding reception venues addresses in handy. No excuses for being late!
+            @Localizer["We don't want"]
         </div>
     </div>
 </div>
@@ -48,7 +49,7 @@
                     <h5 class="card-title">@PlaceToSleep.Adress</h5>
                     <h5 class="card-title">@PlaceToSleep.PostCode, @PlaceToSleep.City</h5>
                     <p class="card-text">@PlaceToSleep.Phone</p>
-                    <a href="#" class="btn btn-primary">View on the map</a>
+                    <a href="#" class="btn btn-primary"> @Localizer["View on the map"]</a>
                 </div>
             </div>
 
@@ -80,13 +81,23 @@
             var infowindow = new google.maps.InfoWindow({
                 content: contentString
             });
-
+            const svgMarker = {
+                //path: "M10.453 14.016l6.563-6.609-1.406-1.406-5.156 5.203-2.063-2.109-1.406 1.406zM12 2.016q2.906 0 4.945 2.039t2.039 4.945q0 1.453-0.727 3.328t-1.758 3.516-2.039 3.070-1.711 2.273l-0.75 0.797q-0.281-0.328-0.75-0.867t-1.688-2.156-2.133-3.141-1.664-3.445-0.75-3.375q0-2.906 2.039-4.945t4.945-2.039z",
+                fillColor: "#F44336",
+                fillOpacity: 0.6,
+                strokeWeight: 0,
+                rotation: 0,
+                scale: 2,
+                url:  '/icons/lodging-2.png',
+            };
+           //var url = window.location.origin;
+           // console.log(url);
             var marker = new google.maps.Marker({
                 position: latLng,
                 title: Name,
                 map: map,
                 draggable: false,
-                icon: '../icons/lodging-2.png'
+                icon: svgMarker
             });
 
             google.maps.event.addListener(marker, 'click', function () {

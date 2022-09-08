@@ -19,7 +19,7 @@ namespace WeddingWebsite.Extensions
                                         new CultureInfo("en-GB")
                                     };
                 options.DefaultRequestCulture = new RequestCulture("en-GB");
-                options.SupportedCultures = supportedCultures;
+                options.SupportedCultures = new List<CultureInfo>() { new CultureInfo("en-GB") };
                 options.SupportedUICultures = supportedCultures;
                 options.FallBackToParentUICultures = true;
                 options.RequestCultureProviders.Insert(0, new RouteDataRequestCultureProvider { Options = options });
