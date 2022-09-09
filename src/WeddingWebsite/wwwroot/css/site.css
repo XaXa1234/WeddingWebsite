@@ -42,7 +42,9 @@ body {
 .nav-link {
     letter-spacing: 2px;
 }
-
+    .nav-link.active {
+        text-decoration: underline;
+    }
 /* Carousel */
 .carousel-caption p {
     font-size: 20px;
