@@ -47,6 +47,10 @@ namespace WeddingWebsite.MyTagHelpers
             {
                 RouteValues["culture"] = culture;
             }
+            else
+            {
+                RouteValues["culture"] = defaultRequestCulture;
+            }
 
             base.Process(context, output);
         }
