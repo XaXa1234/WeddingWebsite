@@ -120,10 +120,13 @@
   <data name="coming" xml:space="preserve">
     <value>Je viens</value>
   </data>
+  <data name="email" xml:space="preserve">
+    <value>Entrez l'email sur lequel vous avez recu l'invitation</value>
+  </data>
   <data name="notcoming" xml:space="preserve">
     <value>Je ne viens pas</value>
   </data>
   <data name="ToConfirm" xml:space="preserve">
-    <value>Pour confirmer (ou non) votre venue au mariage, entrez juste votre nom et cliquez sur rechercher. Vous serez redirige sur la page de participation sur laquelle vous pourrez nous donner plus de renseignements :)</value>
+    <value>Pour confirmer (ou non) votre venue au mariage, entrez juste votre email et cliquez sur rechercher. Vous serez redirige sur la page de participation sur laquelle vous pourrez nous donner plus de renseignements :)</value>
   </data>
 </root>
