@@ -4,8 +4,10 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.DependencyInjection.Extensions;
 using Microsoft.Extensions.Options;
+using System.Reflection;
 using WeddingWebsite.Db;
 using WeddingWebsite.Extensions;
+using WeddingWebsite.Resources;
 using WeddingWebsite.RouteModelConventions;
 using WeddingWebsite.Services;
 
@@ -35,8 +37,17 @@ namespace WeddingWebsite
                 options.LowercaseUrls = true;
                 options.LowercaseQueryStrings = false;
             });
+            services.AddSingleton<CommonLocalizationService>();
             services.AddRazorPages(options =>options.Conventions.Add(new CultureTemplatePageRouteModelConvention()))
-                                                    .AddViewLocalization(LanguageViewLocationExpanderFormat.Suffix);
+                                                    .AddViewLocalization(LanguageViewLocationExpanderFormat.Suffix)
+                                                    .AddDataAnnotationsLocalization(options =>
+                                                    {
+                                                        options.DataAnnotationLocalizerProvider = (type, factory) =>
+                                                        {
+                                                            var assemblyName = new AssemblyName(typeof(CommonResources).GetTypeInfo().Assembly.FullName);
+                                                            return factory.Create(nameof(CommonResources), assemblyName.Name);
+                                                        };
+                                                    });
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

@@ -50,12 +50,12 @@ namespace WeddingWebsite.Pages.Attendance
     }
     public class InputGuestEdit
     {
-        [Required]
+        [Display(Name = "First Name"), Required(ErrorMessage = "First Name Required")]
         public string FirsName { get; set; }
-        [Required]
+        [Display(Name = "Last Name"), Required(ErrorMessage = "Last Name Required")]
         public string LastName { get; set; }
         public string PhoneNumber { get; set; }
-        [Required]
+        [Display(Name = "Is Coming"), Required(ErrorMessage = "Is Coming Required")]
         public bool IsComing { get; set; }
         public string Comment { get; set; }
         public bool CanHaveGuest { get ;private  set; }

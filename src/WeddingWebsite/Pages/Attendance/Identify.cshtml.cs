@@ -1,4 +1,5 @@
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.ModelBinding;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using System.ComponentModel.DataAnnotations;
 using WeddingWebsite.Models;
@@ -10,14 +11,15 @@ namespace WeddingWebsite.Pages.Attendance
     public class IdentifyModel : PageModel
     {
         private readonly IRsvpService rsvpService;
-
+        private readonly CommonLocalizationService commonLocalizationService;
 
         [BindProperty]
         public InputGuestIdentify Input { get;set;}
 
-        public IdentifyModel(IRsvpService rsvpService)
+        public IdentifyModel(IRsvpService rsvpService, CommonLocalizationService commonLocalizationService)
         {
             this.rsvpService = rsvpService;
+            this.commonLocalizationService = commonLocalizationService;
         }
         public void OnGet()
         {
@@ -32,7 +34,7 @@ namespace WeddingWebsite.Pages.Attendance
             {
                 guest = await rsvpService.FindRsvp(Input?.Email);
                 if (guest == null)
-                    ModelState.AddModelError(string.Empty, "Cannot find the email");
+                    ModelState.AddModelError(string.Empty, commonLocalizationService.Get("Cannot find the email"));
             }
             if (!ModelState.IsValid)
                 return Page();
@@ -47,7 +49,7 @@ namespace WeddingWebsite.Pages.Attendance
             {
                 guest = await rsvpService.FindRsvp(Input?.Email);
                 if (guest == null)
-                    ModelState.AddModelError(string.Empty, "Cannot find the email");
+                    ModelState.AddModelError(string.Empty, commonLocalizationService.Get("Cannot find the email"));
             }
             if (!ModelState.IsValid)
                 return Page();
@@ -58,8 +60,7 @@ namespace WeddingWebsite.Pages.Attendance
     }
     public class InputGuestIdentify
     {
-        [Required]
-        [Display(Name = "Email you received the invitation to")]
+        [Display(Name = "Email"), Required(ErrorMessage = "Email Required"), DataType(DataType.EmailAddress)]
         public string Email { get; set; }
     }
 }

@@ -1,4 +1,5 @@
-﻿<!DOCTYPE html>
+﻿@inject CommonLocalizationService localizer
+<!DOCTYPE html>
 <html>
 <head>
     <meta charset="utf-8" />
@@ -30,13 +31,13 @@
             <div class="collapse navbar-collapse justify-content-evenly" id="navbarNav">
                 <ul class="navbar-nav justify-content-evenly">
                     <li class="nav-item">
-                        <a class="nav-link text-uppercase ms-5" is-active-route asp-route-culture="@Context.Request.RouteValues["culture"]" aria-current="page" asp-page="/Index">Welcome!</a>
+                        <a class="nav-link text-uppercase ms-5" is-active-route asp-route-culture="@Context.Request.RouteValues["culture"]" aria-current="page" asp-page="/Index">@localizer.Get("Welcome!")</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link text-uppercase ms-5 " is-active-route  asp-route-culture="@Context.Request.RouteValues["culture"]" asp-page="/Attendance/Identify">Attendance</a>
+                        <a class="nav-link text-uppercase ms-5 " is-active-route asp-route-culture="@Context.Request.RouteValues["culture"]" asp-page="/Attendance/Identify">@localizer.Get("Attendance")</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link text-uppercase  ms-5 " is-active-route  asp-route-culture="@Context.Request.RouteValues["culture"]" asp-page="/WeddingVenue">Wedding Venue</a>
+                        <a class="nav-link text-uppercase  ms-5 " is-active-route  asp-route-culture="@Context.Request.RouteValues["culture"]" asp-page="/WeddingVenue">@localizer.Get("Wedding Venue")</a>
                     </li>
                 </ul>
             </div>
