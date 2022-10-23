@@ -118,13 +118,13 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="As we wait for" xml:space="preserve">
-    <value>Comme le grand jour approche, nous avons créé ce site internet pour vous tenir au courant de tous les détails que vous partagerez avec nous.</value>
+    <value>Nous avons créer ce site pour partager les informations en vue de notre mariage.</value>
   </data>
   <data name="Enjoy the site and see you soon, lots of love!" xml:space="preserve">
     <value>Profitez de ce site et à bientôt !</value>
   </data>
   <data name="Just one important thing" xml:space="preserve">
-    <value>Une chose importante: dans la rubrique "Attendance" nous vous demandons de confirmer votre venue le plut tôt possible pour  que nous puissions préparer au mieux cet événement.</value>
+    <value>S'il vous plait, Naviguez dans la rubrique "Attendance" pour confirmer si vous pouvez assistez au mariage.</value>
   </data>
   <data name="SaveTheDate" xml:space="preserve">
     <value>Réservez La Date</value>
@@ -133,7 +133,7 @@
     <value>Nous sommes tellement excités! Nous sommes sur un nuage et nous voulons partager cela avec vous. Nous préparons un mariage qui fera date et au cours duquel vous allez vous amuser.</value>
   </data>
   <data name="WeddingDate" xml:space="preserve">
-    <value>17 Septembre 2023</value>
+    <value>Dimanche, 17 Septembre 2023</value>
   </data>
   <data name="WeddingDate1" xml:space="preserve">
     <value>17</value>

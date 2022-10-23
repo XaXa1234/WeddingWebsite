@@ -118,25 +118,25 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="As we wait for" xml:space="preserve">
-    <value>As we wait for the big day to arrive, we have created this website with lots of sections to keep you up-to-date of everything and to share our love story.</value>
+    <value>We've created this website to share information as we make preparations for our day !</value>
   </data>
   <data name="Enjoy the site and see you soon, lots of love!" xml:space="preserve">
     <value>Enjoy the site and see you soon, lots of love!</value>
   </data>
   <data name="Just one important thing" xml:space="preserve">
-    <value>Just one important thing, in the attendance section you can confirm whether or not you will be at our wedding with us. Please, confirm as soon as possible, so we can arrange everything much faster.</value>
+    <value>Please navigate to the "ATTENDANCE" section to confirm if you are free to join our celebration.</value>
   </data>
   <data name="SaveTheDate" xml:space="preserve">
     <value>Save The Date</value>
   </data>
   <data name="We are so excited" xml:space="preserve">
-    <value>We are so excited! We are in cloud nine and we want to share our love with you. We are planning a wedding that will make history, in which you will have lots of fun.</value>
+    <value>We are so excited to share our day with you !</value>
   </data>
   <data name="WeddingDate" xml:space="preserve">
     <value>17 September 2023</value>
   </data>
   <data name="WeddingDate1" xml:space="preserve">
-    <value>17th</value>
+    <value>Sunday, 17th</value>
   </data>
   <data name="WeddingDate2" xml:space="preserve">
     <value>September, 2023</value>
@@ -148,6 +148,6 @@
     <value>We're Getting Married!</value>
   </data>
   <data name="Yes! We are getting married!" xml:space="preserve">
-    <value>Yes! We are getting married!</value>
+    <value>We are getting married!</value>
   </data>
 </root>

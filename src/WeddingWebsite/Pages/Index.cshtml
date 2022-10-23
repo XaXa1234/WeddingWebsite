@@ -4,7 +4,23 @@
 @inject IViewLocalizer Localizer
 @{
     ViewData["Title"] = "Home page";
+    Layout = "_SubLayout";
 }
+<div class="row full-width">
+    <div class="col">
+        <div class="content-panel">
+            <p class="claim">
+                @Localizer["WereGettingMarried"]
+            </p>
+            <p class="content-heading">
+                <span >@Localizer["WeddingDate1"]</span> @Localizer["WeddingDate2"]
+            </p>
+            <p class="place">
+                Gaynes Park, Epping, Essex
+            </p>
+        </div>
+    </div>
+</div>
 <div id="myCarousel" class="col carousel slide full-width" data-bs-ride="carousel">
     <!-- Carousel indicators -->
     <ol class="carousel-indicators">
@@ -49,21 +65,7 @@
     </div>
 </div>
 
-<div class="row background-top full-width">
-    <div class="col">
-            <div class="content-panel">
-                <p class="claim">
-                @Localizer["WereGettingMarried"]
-                </p>
-                <p class="content-heading">
-                <span style="text-transform:lowercase">@Localizer["WeddingDate1"]</span> @Localizer["WeddingDate2"]
-                </p>                       
-                <p class="place">
-                    Epping, Essex
-                </p>
-            </div>
-    </div>
-</div>
+
 <div class="row websiteContainer" >
     <div class="col">
             <ul class="app-website-sections">

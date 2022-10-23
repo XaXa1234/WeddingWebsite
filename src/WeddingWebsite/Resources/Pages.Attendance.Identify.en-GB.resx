@@ -127,6 +127,12 @@
     <value>I'm not coming</value>
   </data>
   <data name="ToConfirm" xml:space="preserve">
-    <value>To confirm your attendance (or not) to the wedding, just enter your email and click on Search. Your will be redirected to the attendance page in which you can give us more information :)</value>
+    <value>To confirm your attendance: </value>
+  </data>
+  <data name="ToConfirm1" xml:space="preserve">
+    <value>Please enter your email address</value>
+  </data>
+  <data name="ToConfirm2" xml:space="preserve">
+    <value>Select "I'm coming" or "I'm not coming".</value>
   </data>
 </root>

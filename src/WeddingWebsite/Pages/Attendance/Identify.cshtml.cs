@@ -30,9 +30,9 @@ namespace WeddingWebsite.Pages.Attendance
         {
             //throw new Exception("fdwefwlefj");
             RsvpGuest guest = null;
-            if (!string.IsNullOrEmpty(Input.Email))
+            if (!string.IsNullOrEmpty(Input?.Email))
             {
-                guest = await rsvpService.FindRsvp(Input?.Email);
+                guest = await rsvpService.FindRsvp(Input?.Email.Trim());
                 if (guest == null)
                     ModelState.AddModelError(string.Empty, commonLocalizationService.Get("Cannot find the email"));
             }
