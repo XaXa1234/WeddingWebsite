@@ -55,6 +55,7 @@ namespace WeddingWebsite.Pages.Attendance
         [Display(Name = "Last Name"), Required(ErrorMessage = "Last Name Required")]
         public string LastName { get; set; }
         public string PhoneNumber { get; set; }
+        public string Address { get; set; }
         [Display(Name = "Is Coming"), Required(ErrorMessage = "Is Coming Required")]
         public bool IsComing { get; set; }
         public string Comment { get; set; }
@@ -62,6 +63,7 @@ namespace WeddingWebsite.Pages.Attendance
         public bool HasGuest { get; set; }
         public string GuestFirstName { get; set; }
         public string GuestLastName { get; set; }
+        public string CommentGuest { get; set; }
         public static InputGuestEdit From(RsvpGuest guest)
         {
             InputGuestEdit result = new InputGuestEdit();
@@ -70,12 +72,14 @@ namespace WeddingWebsite.Pages.Attendance
             if(guest.IsComing.HasValue)
                 result.IsComing = guest.IsComing.Value;
             result.PhoneNumber = guest.PhoneNumber;
+            result.Address = guest.Address;
             result.Comment = guest.Comment;
             result.CanHaveGuest = guest.CanHaveGuest;
             if(guest.HasGuest.HasValue)
                 result.HasGuest = guest.HasGuest.Value;
             result.GuestFirstName = guest.GuestFirstName;
             result.GuestLastName = guest.GuestLastName;
+            result.CommentGuest = guest.CommentGuest;
             return result;
 
         }

@@ -24,12 +24,15 @@
                 <label asp-for="Input.LastName" class="form-label">@Localizer["Last name"]</label>
                 <input type="text" class="form-control" asp-for="Input.LastName" placeholder="@Localizer["Please enter your Last Name"]">
             </div>
-            <div class="col-sm-12 col-md-6">
+            <div class="col-md-6">
+                <label asp-for="Input.Address" class="form-label">@Localizer["Address"]</label>
+                <input type="text" class="form-control" asp-for="Input.Address" placeholder="@Localizer["Please enter your Phone Address"]">
+            </div>
+            <div class="col-md-6">
                 <label asp-for="Input.PhoneNumber" class="form-label">@Localizer["Phone"]</label>
                 <input type="text" class="form-control" asp-for="Input.PhoneNumber" placeholder="@Localizer["Please enter your Phone Number"]">
             </div>
             <div class="mb-3">
-
                 <label asp-for="Input.Comment" class="form-label">@Localizer["Anything else ?"]</label>
                 <textarea class="form-control" asp-for="Input.Comment" rows="3" placeholder="@Localizer["Vegan, food allergy etc.."]"></textarea>
             </div>
@@ -51,6 +54,11 @@
                     <label asp-for="Input.GuestLastName" class="form-label">@Localizer["Your Guest Last name"]</label>
                     <input type="text" class="form-control" asp-for="Input.GuestLastName" placeholder="@Localizer["Please enter your Guest Last Name"]">
                     </div>
+                <div class="mb-3">
+
+                    <label asp-for="Input.CommentGuest" class="form-label">@Localizer["Anything else ?"]</label>
+                    <textarea class="form-control" asp-for="Input.CommentGuest" rows="3" placeholder="@Localizer["Vegan, food allergy etc.."]"></textarea>
+                </div>
             }
             <div class="col-12">
                 <button type="submit" class="btn btn-primary">@Localizer["Submit"]</button>

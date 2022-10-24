@@ -123,6 +123,9 @@
   <data name="email" xml:space="preserve">
     <value>Please enter the email on which you received the invitation</value>
   </data>
+  <data name="ForInformationVenue" xml:space="preserve">
+    <value>For information on the venue please navigate to the "Wedding Venue" section in the menu.</value>
+  </data>
   <data name="notcoming" xml:space="preserve">
     <value>I'm not coming</value>
   </data>

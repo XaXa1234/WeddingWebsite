@@ -117,8 +117,11 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="Address" xml:space="preserve">
+    <value>Address</value>
+  </data>
   <data name="Anything else ?" xml:space="preserve">
-    <value>Anything else ?</value>
+    <value>Please provide any dietary, allergy or information.</value>
   </data>
   <data name="First name" xml:space="preserve">
     <value>First name</value>
@@ -146,6 +149,9 @@
   </data>
   <data name="Please enter your Last Name" xml:space="preserve">
     <value>Please enter your Last Name</value>
+  </data>
+  <data name="Please enter your Phone Address" xml:space="preserve">
+    <value>Please enter your Address</value>
   </data>
   <data name="Please enter your Phone Number" xml:space="preserve">
     <value>Please enter your Phone Number</value>
