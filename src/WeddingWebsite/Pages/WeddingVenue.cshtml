@@ -18,7 +18,7 @@
 <div class="row mt-5 justify-content-center">
     <div class="col-md-6 weddingvenueaddress ">
         <h2>Gaynes Park </h2>
-        <p class="fw-bold">Telephone 01992 660329</p>
+        <p class="fw-bold">Telephone +441992 660329</p>
         <div class="websiteFont__hero">
             Gaynes Park, Banks Lane, Coopersale
             <br />
@@ -30,45 +30,58 @@
 
     </div>
 </div>
-<div class="row background-sep m-4">
+<div class="row background-sep">
 </div>
 <div class="row websiteContainerAttendance">
     <div class="col">
         <h1>@Localizer["Nearby Hotels"]</h1>
     </div>
 </div>
-<div class="row mt-5 justify-content-center">
+<div class="row mt-5 justify-content-center  g-4">
     @foreach (var PlaceToSleep in Model.PlaceToSleeps)
     {
-        <div class="col-md-6 weddingvenueaddress ">
-            <div class="card m-3">
-                <div class="card-header">
-                    <h2>@PlaceToSleep.Name</h2>
-                </div>
+        <div class="col-md-6 d-flex align-items-stretch">
+            <div class="card" style="width: 90%;">
+                <img src="@PlaceToSleep.Picture" class="card-img-top " alt="hotel">
                 <div class="card-body">
-                    <h5 class="card-title">@PlaceToSleep.Adress</h5>
-                    <h5 class="card-title">@PlaceToSleep.PostCode, @PlaceToSleep.City</h5>
-                    <p class="card-text">@PlaceToSleep.Phone</p>
-                    <a href="#" class="btn btn-primary"> @Localizer["View on the map"]</a>
+                    <h3 class="card-title"><strong>@PlaceToSleep.Name</strong></h3>
+                    <p class="card-text">
+                        @PlaceToSleep.Adress</p>
+                    <p class="card-text">@PlaceToSleep.PostCode, @PlaceToSleep.City</p>
+                    <p><em>@PlaceToSleep.Phone</em></p>
+                </div>
+              @*  <ul class="list-group list-group-flush">
+                    <li class="list-group-item">An item</li>
+                    <li class="list-group-item">A second item</li>
+                    <li class="list-group-item">A third item</li>
+                </ul>*@
+                <div class="card-body">
+                    <a href="@PlaceToSleep.Website" class="card-link">Website</a>
                 </div>
             </div>
-
-            @*   <p class="fw-bold">Telephone @PlaceToSleep.Phone</p>
-        <div class="websiteFont__hero">
-        @PlaceToSleep.Adress
-        <br />
-        @PlaceToSleep.PostCode, @PlaceToSleep.City
+            @*<div class="card m-3">
+        <div class="card-header">
+        <h2>@PlaceToSleep.Name</h2>
+        </div>
+        <div class="card-body">
+        <h5 class="card-title">@PlaceToSleep.Adress</h5>
+        <h5 class="card-title">@PlaceToSleep.PostCode, @PlaceToSleep.City</h5>
+        <p class="card-text">@PlaceToSleep.Phone</p>
+        <a href="#" class="btn btn-primary"> @Localizer["View on the map"]</a>
+        </div>
         </div>*@
         </div>
-        @*  <div class="col-md-6">
-    <div id="mapgaynespark"></div>
-
-    </div>*@
     }
 
 </div>
-
-@if(Model.RequestedCulture == "fr")
+<div class="row background-sep">
+</div>
+<div class="row websiteContainerAttendance">
+    <div class="col">
+        <h1>How to get there</h1>
+    </div>
+</div>
+@if (Model.RequestedCulture == "fr")
 {
 }
 
@@ -93,10 +106,10 @@
                 strokeWeight: 0,
                 rotation: 0,
                 scale: 2,
-                url:  '/icons/lodging-2.png',
+                url: '/icons/lodging-2.png',
             };
-           //var url = window.location.origin;
-           // console.log(url);
+            //var url = window.location.origin;
+            // console.log(url);
             var marker = new google.maps.Marker({
                 position: latLng,
                 title: Name,
@@ -149,7 +162,7 @@
         {
             @:addMarker(@item.lat, @item.lon, '@item.Name', '@item.Adress', '@item.PostCode', '@item.City', '@item.Phone', map);
         }
-                                }
+                                                                }
 
         window.initMap = initMap;
 

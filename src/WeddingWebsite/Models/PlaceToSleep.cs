@@ -9,6 +9,7 @@
         public string? Adress { get; set; }
         public string? City { get; set; }
         public string? Website { get; set; }
+        public string? Picture { get; set; }
         public string? Email { get; set; }
         public string? Prix { get; set; }
         public decimal? lat { get; set; }
