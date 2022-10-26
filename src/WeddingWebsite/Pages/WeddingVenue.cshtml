@@ -46,15 +46,16 @@
                 <div class="card-body">
                     <h3 class="card-title"><strong>@PlaceToSleep.Name</strong></h3>
                     <p class="card-text">
-                        @PlaceToSleep.Adress</p>
+                        @PlaceToSleep.Adress
+                    </p>
                     <p class="card-text">@PlaceToSleep.PostCode, @PlaceToSleep.City</p>
                     <p><em>@PlaceToSleep.Phone</em></p>
                 </div>
-              @*  <ul class="list-group list-group-flush">
-                    <li class="list-group-item">An item</li>
-                    <li class="list-group-item">A second item</li>
-                    <li class="list-group-item">A third item</li>
-                </ul>*@
+                @*  <ul class="list-group list-group-flush">
+            <li class="list-group-item">An item</li>
+            <li class="list-group-item">A second item</li>
+            <li class="list-group-item">A third item</li>
+            </ul>*@
                 <div class="card-body">
                     <a href="@PlaceToSleep.Website" class="card-link">Website</a>
                 </div>
@@ -78,8 +79,88 @@
 </div>
 <div class="row websiteContainerAttendance">
     <div class="col">
-        <h1>How to get there</h1>
+        <h1>@Localizer["How to get there (official website:"]  <a href="https://tfl.gov.uk/plan-a-journey/" class="card-link">TFL</a>)</h1>
     </div>
+</div>
+<h2><em>@Localizer["From Stansted Airport"]</em></h2>
+<div class="timeline">
+    <ul>
+        <li>
+            <div class="content">
+                <div class="time">
+                    <svg width="35px" height="35px" enable-background="new 23.622 16.534 179.527 108.662" version="1.1" viewBox="23.62 16.53 179.5 108.7" xml:space="preserve" xmlns="http://www.w3.org/2000/svg">
+<title>British Rail Flame Red logo</title>
+<g transform="translate(0,-247)">
+                    <path d="m203.1 289.5v16.54h-48.42l-47.24 23.62h95.67v16.54h-95.67l62.6 25.98h-42.52l-55.51-25.98h-48.42v-16.54h48.42l47.24-23.62h-95.67v-16.54h95.67l-62.6-25.98h42.52l55.51 25.98 48.42-1e-3z" fill="#FF4200" />
+</g>
+</svg>
+                    <h4>@Localizer["Greater Anglia to London Liverpool Street"]</h4>
+                </div>
+                <h2>50 min</h2>
+                <p>@Localizer["From Stansted Airport Rail Station to London Liverpool Street, 3 stops."]</p>
+            </div>
+        </li>
+     @*   <li>
+            <div class="content">
+                <div class="time">
+                    <svg width="35px" height="35px" enable-background="new 23.622 16.534 179.527 108.662" version="1.1" viewBox="23.62 16.53 179.5 108.7" xml:space="preserve" xmlns="http://www.w3.org/2000/svg">
+<title>British Rail Flame Red logo</title>
+<g transform="translate(0,-247)">
+                    <path d="m203.1 289.5v16.54h-48.42l-47.24 23.62h95.67v16.54h-95.67l62.6 25.98h-42.52l-55.51-25.98h-48.42v-16.54h48.42l47.24-23.62h-95.67v-16.54h95.67l-62.6-25.98h42.52l55.51 25.98 48.42-1e-3z" fill="#FF4200" />
+</g>
+</svg>
+                    <h4>@Localizer["Greater Anglia to Stratford"]</h4>
+                </div>
+                <h2>10 min</h2>
+                <p>@Localizer["Change here to Stratford, 2 stops."]</p>
+            </div>
+        </li>*@
+        <li>
+            <div class="content">
+                <div class="time">
+                    <svg version="1.1"  width="35px" height="35px"  id="Livello_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+                         viewBox="0 0 615.3 500" enable-background="new 0 0 615.3 500" xml:space="preserve">
+<g>
+                    <path fill="#DC241F" d="M469.5,250c0,89.1-72.3,161.3-161.3,161.3c-89.1,0-161.3-72.2-161.3-161.3S219,88.7,308.1,88.7
+		C397.2,88.7,469.5,160.9,469.5,250 M308.1,0C170,0,58.1,111.9,58.1,250c0,138.1,111.9,250,250,250c138.1,0,250-111.9,250-250
+		C558.1,111.9,446.2,0,308.1,0" />
+                    <rect x="0" y="199.5" fill="#0019A8" width="615.3" height="101.1" />
+                    <path fill="#FFFFFF" d="M71.9,268.6c-4.2,5.2-10.5,8.5-18.3,8.5c-7.8,0-14-3.2-18.4-8.6c-3.4-4.1-4.9-9-4.9-16V224h10.2v28.6
+		c0,8.9,5.1,14.7,13.1,14.7c8.2,0,13.2-5.9,13.2-14.7V224h10.1v28.2C76.9,259.4,75.6,264.1,71.9,268.6" />
+                    <polygon fill="#FFFFFF" points="122.6,276.1 94.9,240.2 94.9,276.1 84.7,276.1 84.7,224 94.9,224 122.6,260.1 122.6,224 132.8,224
+		132.8,276.1 	" />
+                    <path fill="#FFFFFF" d="M155.4,276.1h-14.5V224h17.8c18,0,27.7,11.9,27.7,25.4C186.3,263.4,176.1,276.1,155.4,276.1 M156.8,232.8
+		H151V267h5c12.1,0,20.1-6.8,20.1-17.2C176,239.3,168.8,232.8,156.8,232.8" />
+                    <polygon fill="#FFFFFF" points="192.7,276.1 192.7,224 225,224 225,233.1 202.8,233.1 202.8,243.9 221.1,243.9 221.1,253.1
+		202.8,253.1 202.8,266.8 226.9,266.8 226.9,276.1 	" />
+                    <path fill="#FFFFFF" d="M261.6,276.1l-14.4-20.8h-4.7v20.8h-10.1V224h16.9c10.7,0,17.7,5.6,17.7,15.2c0,6.4-3.6,11.5-9.8,13.7
+		l16.4,23.1H261.6z M248.4,232.8h-5.8v13.7h4.8c5.9,0,9.4-2.6,9.4-7.2C256.9,235.3,253.7,232.8,248.4,232.8" />
+                    <path fill="#FFFFFF" d="M301.4,277.1c-16.3,0-28.3-11.4-28.3-27.1c0-15.3,12-27,28.2-27c6.1,0,12.3,1.6,18.1,4.6v10.6
+		c-4.9-3.5-11.2-5.9-17.4-5.9c-11.3,0-18.6,8.1-18.6,17.9c0,10,7.4,17.8,18.3,17.8c2.7,0,5.3-0.2,8-1.2v-11.2h-8.5v-8.9h18.7v24.8
+		C313.6,275.3,308.1,277.1,301.4,277.1" />
+                    <path fill="#FFFFFF" d="M356.8,276.1l-14.4-20.8h-4.7v20.8h-10.1V224h16.9c10.7,0,17.7,5.6,17.7,15.2c0,6.4-3.6,11.5-9.8,13.7
+		l16.4,23.1H356.8z M343.5,232.8h-5.8v13.7h4.8c5.9,0,9.4-2.6,9.4-7.2C352,235.3,348.8,232.8,343.5,232.8" />
+                    <path fill="#FFFFFF" d="M395.5,277.1c-15,0-27.3-11.3-27.3-27.1c0-15.7,12.4-27,27.3-27c14.9,0,27.3,11.3,27.3,27.1
+		C422.9,265.8,410.4,277.1,395.5,277.1 M395.5,233c-9.8,0-17,7.4-17,17.1c0,9.6,7.2,17,17,17c9.8,0,17-7.4,17-17
+		C412.6,240.4,405.3,233,395.5,233" />
+                    <path fill="#FFFFFF" d="M470.5,268.6c-4.2,5.2-10.5,8.5-18.3,8.5c-7.8,0-14-3.2-18.4-8.6c-3.4-4.1-4.9-9-4.9-16V224h10.1v28.6
+		c0,8.9,5.2,14.7,13.1,14.7c8.2,0,13.2-5.9,13.2-14.7V224h10.1v28.2C475.5,259.4,474.2,264.1,470.5,268.6" />
+                    <polygon fill="#FFFFFF" points="521.3,276.1 493.5,240.2 493.5,276.1 483.3,276.1 483.3,224 493.5,224 521.3,260.1 521.3,224
+		531.4,224 531.4,276.1 	" />
+                    <path fill="#FFFFFF" d="M554,276.1h-14.5V224h17.8c18,0,27.7,11.9,27.7,25.4C585,263.4,574.7,276.1,554,276.1 M555.5,232.8h-5.9
+		V267h5c12.1,0,20.1-6.8,20.1-17.2C574.7,239.3,567.4,232.8,555.5,232.8" />
+</g>
+</svg>
+
+                    <h4>@Localizer["Central line to Epping."]</h4>
+                </div>
+                <h2>35 min</h2>
+                <p>@Localizer["Change at Liverpool Street Underground Station for the Central line to Epping, 13 stops."]</p>
+            </div>
+        </li>
+      
+        <div style="clear: both;"></div>
+    </ul>
 </div>
 @if (Model.RequestedCulture == "fr")
 {
@@ -88,7 +169,25 @@
 
 @section Scripts {
     <script type="text/javascript">
-
+        $(window).on('scroll', function () {
+            function isScrollIntoView(elem, index) {
+                var docViewTop = $(window).scrollTop();
+                var docViewBottom = docViewTop + $(window).height();
+                var elemTop = $(elem).offset().top;
+                var elemBottom = elemTop + $(window).height() * .5;
+                if (elemBottom <= docViewBottom && elemTop >= docViewTop) {
+                    $(elem).addClass('active');
+                }
+                if (!(elemBottom <= docViewBottom)) {
+                    $(elem).removeClass('active');
+                }
+                var MainTimelineContainer = $('#vertical-scrollable-timeline')[0];
+                var MainTimelineContainerBottom = MainTimelineContainer.getBoundingClientRect().bottom - $(window).height() * .5;
+                $(MainTimelineContainer).find('.inner').css('height', MainTimelineContainerBottom + 'px');
+            }
+            var timeline = $('#vertical-scrollable-timeline li');
+            Array.from(timeline).forEach(isScrollIntoView);
+        });
         // Some JavaScript code here to display map, etc.
         // Declare addMarker function
         function addMarker(latitude, longitude, Name, Adress, PostCode, City, Phone, map) {
@@ -162,7 +261,7 @@
         {
             @:addMarker(@item.lat, @item.lon, '@item.Name', '@item.Adress', '@item.PostCode', '@item.City', '@item.Phone', map);
         }
-                                                                }
+                                                                        }
 
         window.initMap = initMap;
 

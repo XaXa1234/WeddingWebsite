@@ -54,9 +54,9 @@
                     <label asp-for="Input.GuestLastName" class="form-label">@Localizer["Your Guest Last name"]</label>
                     <input type="text" class="form-control" asp-for="Input.GuestLastName" placeholder="@Localizer["Please enter your Guest Last Name"]">
                     </div>
-                <div class="mb-3">
+                <div class="mb-3 guestinfo">
 
-                    <label asp-for="Input.CommentGuest" class="form-label">@Localizer["Anything else ?"]</label>
+                    <label asp-for="Input.CommentGuest" class="form-label">@Localizer["Anything else ?Guest"]</label>
                     <textarea class="form-control" asp-for="Input.CommentGuest" rows="3" placeholder="@Localizer["Vegan, food allergy etc.."]"></textarea>
                 </div>
             }

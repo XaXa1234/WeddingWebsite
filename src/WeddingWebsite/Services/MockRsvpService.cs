@@ -50,8 +50,8 @@ namespace WeddingWebsite.Services
             return Task.CompletedTask;
         }
 
-        public async Task UpdateRsvp(string email, string firstName, string lastName, string phoneNumber, bool? isComing, string comment, bool? hasGuest,
-                                string guestFirstName, string guestlastName)
+        public async Task UpdateRsvp(string email, string firstName, string lastName, string address, string phoneNumber, bool? isComing, string comment, bool? hasGuest,
+                                string guestFirstName, string guestlastName, string commentGuest)
         {
             var guest = await FindRsvp(email);
             if (guest == null) throw new Exception("Cannot find the guest");

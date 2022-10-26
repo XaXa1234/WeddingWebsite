@@ -46,18 +46,20 @@ namespace WeddingWebsite.Services
             await dbContext.SaveChangesAsync(new CancellationToken());
         }
 
-        public async Task UpdateRsvp(string email, string firstName, string lastName, string phoneNumber, bool? isComing, string comment, bool? hasGuest, string guestFirstName, string guestlastName)
+        public async Task UpdateRsvp(string email, string firstName, string lastName,string address, string phoneNumber, bool? isComing, string comment, bool? hasGuest, string guestFirstName, string guestlastName, string commentGuest)
         {
             var g = await FindRsvp(email);
             if (g == null) throw new Exception("Cannot find the guest");
             g.FirsName = firstName;
             g.LastName = lastName;
             g.PhoneNumber = phoneNumber;
+            g.Address = address;
             g.IsComing = isComing;
             g.Comment = comment;
             g.HasGuest = hasGuest;
             g.GuestFirstName = guestFirstName;
             g.GuestLastName = guestlastName;
+            g.CommentGuest = commentGuest;
             await dbContext.SaveChangesAsync(new CancellationToken());
         }
     }

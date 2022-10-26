@@ -130,13 +130,13 @@
     <value>Réservez La Date</value>
   </data>
   <data name="We are so excited" xml:space="preserve">
-    <value>Nous sommes tellement excités! Nous sommes sur un nuage et nous voulons partager cela avec vous. Nous préparons un mariage qui fera date et au cours duquel vous allez vous amuser.</value>
+    <value>Nous sommes tellement excités! Nous sommes sur un nuage et nous voulons partager cela avec vous.</value>
   </data>
   <data name="WeddingDate" xml:space="preserve">
-    <value>Dimanche, 17 Septembre 2023</value>
+    <value>17 Septembre 2023</value>
   </data>
   <data name="WeddingDate1" xml:space="preserve">
-    <value>17</value>
+    <value>Dimanche, 17</value>
   </data>
   <data name="WeddingDate2" xml:space="preserve">
     <value>Septembre, 2023</value>

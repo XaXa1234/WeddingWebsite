@@ -7,8 +7,8 @@ namespace WeddingWebsite.Services
         string EncodeRsvpEmail(string email);
         string DecodeRsvpEmail(string emailEncoded);
         Task<RsvpGuest?> FindRsvp(string? email);
-        Task UpdateRsvp(string email, string firstName, string lastName, string phoneNumber, bool? isComing, string comment, bool? hasGuest,
-                                string guestFirstName, string guestlastName);
+        Task UpdateRsvp(string email, string firstName, string lastName, string address, string phoneNumber, bool? isComing, string comment, bool? hasGuest,
+                                string guestFirstName, string guestlastName, string commentGuest);
         Task IsNotComing(RsvpGuest guest);
         Task IsComing(RsvpGuest guest);
 

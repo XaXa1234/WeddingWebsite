@@ -123,6 +123,9 @@
   <data name="Anything else ?" xml:space="preserve">
     <value>Indiquez si vous avez des allergies ou des restrictions alimentaires svp.</value>
   </data>
+  <data name="Anything else ?Guest" xml:space="preserve">
+    <value>Indiquez si votre +1 a des allergies ou des restrictions alimentaires svp.</value>
+  </data>
   <data name="First name" xml:space="preserve">
     <value>Prenom</value>
   </data>

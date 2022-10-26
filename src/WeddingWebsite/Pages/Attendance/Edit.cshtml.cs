@@ -42,9 +42,9 @@ namespace WeddingWebsite.Pages.Attendance
                 
                 return RedirectToPage("/Attendance/Identify", new { culture = cul });
             }
-            await rsvpService.UpdateRsvp(emailDecoded, Input.FirsName, Input.LastName, 
+            await rsvpService.UpdateRsvp(emailDecoded, Input.FirsName, Input.LastName, Input.Address,
                                             Input.PhoneNumber, Input.IsComing, Input.Comment,
-                                            Input.HasGuest, Input.GuestFirstName, Input.GuestLastName);
+                                            Input.HasGuest, Input.GuestFirstName, Input.GuestLastName, Input.CommentGuest);
             return RedirectToPage("/Attendance/Finished", new { culture = cul });
         }
     }

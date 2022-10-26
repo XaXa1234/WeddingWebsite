@@ -123,6 +123,9 @@
   <data name="Anything else ?" xml:space="preserve">
     <value>Please provide any dietary, allergy or information.</value>
   </data>
+  <data name="Anything else ?Guest" xml:space="preserve">
+    <value>Please provide any of  your guest's dietary, allergy, information.</value>
+  </data>
   <data name="First name" xml:space="preserve">
     <value>First name</value>
   </data>
