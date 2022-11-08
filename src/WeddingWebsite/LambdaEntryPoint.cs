@@ -1,3 +1,9 @@
+using Amazon.Lambda.APIGatewayEvents;
+using Amazon.Lambda.Core;
+using Serilog;
+using Serilog.Context;
+using Serilog.Events;
+
 namespace WeddingWebsite
 {
     /// <summary>
@@ -32,6 +38,10 @@ namespace WeddingWebsite
                 .UseStartup<Startup>();
         }
 
+        protected override IHostBuilder CreateHostBuilder()
+        {
+            return base.CreateHostBuilder();
+        }
         /// <summary>
         /// Use this override to customize the services registered with the IHostBuilder. 
         /// 
@@ -41,6 +51,24 @@ namespace WeddingWebsite
         /// <param name="builder"></param>
         protected override void Init(IHostBuilder builder)
         {
+           // Log.Logger = new LoggerConfiguration()
+           //.MinimumLevel.Override("Microsoft", LogEventLevel.Information)
+           //.Enrich.FromLogContext()
+           //.WriteTo.Console()
+           //.CreateLogger();
+            builder.UseSerilog((context, services, configuration) => configuration
+                    .ReadFrom.Configuration(context.Configuration)
+                    .ReadFrom.Services(services));
+        }
+        public override Task<APIGatewayProxyResponse> FunctionHandlerAsync(APIGatewayProxyRequest request, ILambdaContext lambdaContext)
+        {
+            using (LogContext.PushProperty("AwsRequestId", lambdaContext.AwsRequestId))
+            using (LogContext.PushProperty("SourceIp", request?.RequestContext?.Identity?.SourceIp))
+            using (LogContext.PushProperty("UserAgent", request?.RequestContext?.Identity?.UserAgent))
+            {
+                return base.FunctionHandlerAsync(request, lambdaContext);
+            }
+
         }
     }
 }

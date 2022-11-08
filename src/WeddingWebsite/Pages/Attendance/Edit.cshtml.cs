@@ -1,5 +1,6 @@
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
+using Serilog.Context;
 using System.ComponentModel.DataAnnotations;
 using System.Xml.Linq;
 using WeddingWebsite.Models;
@@ -11,41 +12,59 @@ namespace WeddingWebsite.Pages.Attendance
     public class EditModel : PageModel
     {
         private readonly IRsvpService rsvpService;
+        private readonly ILogger<EditModel> logger;
 
-        public EditModel(IRsvpService rsvpService)
+        public EditModel(IRsvpService rsvpService, ILogger<EditModel> logger)
         {
             this.rsvpService = rsvpService;
+            this.logger = logger;
         }
 
         [BindProperty]
         public InputGuestEdit Input { get; set; }
         public async Task<IActionResult> OnGet(string u)
         {
-            var emailDecoded =  rsvpService.DecodeRsvpEmail(u);
-            var guest = await rsvpService.FindRsvp(emailDecoded);
-            if (guest == null)
+            using (LogContext.PushProperty("u", u))
             {
-                var cul = HttpContext.Request.RouteValues.GetValueOrDefault("culture");
-                return RedirectToPage("/Attendance/Identify", new { culture = cul });
+                var emailDecoded = rsvpService.DecodeRsvpEmail(u);
+                using (LogContext.PushProperty("emailDecoded", emailDecoded))
+                {
+                    var guest = await rsvpService.FindRsvp(emailDecoded);
+                    if (guest == null)
+                    {
+                        logger.LogInformation("####### Cannot find email");
+                        var cul = HttpContext.Request.RouteValues.GetValueOrDefault("culture");
+                        return RedirectToPage("/Attendance/Identify", new { culture = cul });
+                    }
+                    Input = InputGuestEdit.From(guest);
+                    return Page();
+                }
             }
-            Input = InputGuestEdit.From(guest);
-            return Page();
         }
         
         public async Task<IActionResult> OnPost(string u)
         {
-            var cul = HttpContext.Request.RouteValues.GetValueOrDefault("culture");
-            var emailDecoded = rsvpService.DecodeRsvpEmail(u);
-            var guest = await rsvpService.FindRsvp(emailDecoded);
-            if (guest == null)
+
+            using (LogContext.PushProperty("u", u))
             {
-                
-                return RedirectToPage("/Attendance/Identify", new { culture = cul });
+                var emailDecoded = rsvpService.DecodeRsvpEmail(u);
+                using (LogContext.PushProperty("emailDecoded", emailDecoded))
+                {
+                    logger.LogInformation("####### EDIT: {@EditInformations}", Input);
+                    var cul = HttpContext.Request.RouteValues.GetValueOrDefault("culture");
+                    var guest = await rsvpService.FindRsvp(emailDecoded);
+                    if (guest == null)
+                    {
+                        logger.LogInformation("####### Cannot find email");
+                        return RedirectToPage("/Attendance/Identify", new { culture = cul });
+                    }
+                    await rsvpService.UpdateRsvp(emailDecoded, Input.FirsName, Input.LastName, Input.Address,
+                                                    Input.PhoneNumber, Input.IsComing, Input.Comment,
+                                                    Input.HasGuest, Input.GuestFirstName, Input.GuestLastName, Input.CommentGuest);
+                    logger.LogInformation("####### infos updated");
+                    return RedirectToPage("/Attendance/Finished", new { culture = cul });
+                }
             }
-            await rsvpService.UpdateRsvp(emailDecoded, Input.FirsName, Input.LastName, Input.Address,
-                                            Input.PhoneNumber, Input.IsComing, Input.Comment,
-                                            Input.HasGuest, Input.GuestFirstName, Input.GuestLastName, Input.CommentGuest);
-            return RedirectToPage("/Attendance/Finished", new { culture = cul });
         }
     }
     public class InputGuestEdit
