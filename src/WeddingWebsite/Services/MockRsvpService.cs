@@ -50,7 +50,7 @@ namespace WeddingWebsite.Services
             return Task.CompletedTask;
         }
 
-        public async Task UpdateRsvp(string email, string firstName, string lastName, string address, string phoneNumber, bool? isComing, string comment, bool? hasGuest,
+        public async Task UpdateRsvp(string email, string firstName, string lastName, string address, string phoneNumber, string comment, bool? hasGuest,
                                 string guestFirstName, string guestlastName, string commentGuest)
         {
             var guest = await FindRsvp(email);
@@ -58,7 +58,6 @@ namespace WeddingWebsite.Services
             guest.FirsName = firstName;
             guest.LastName = lastName;
             guest.PhoneNumber = phoneNumber;
-            guest.IsComing = isComing;
             guest.Comment = comment;
             guest.HasGuest = hasGuest;
             guest.GuestFirstName = guestFirstName;

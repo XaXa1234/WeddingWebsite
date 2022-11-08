@@ -59,7 +59,7 @@ namespace WeddingWebsite.Pages.Attendance
                         return RedirectToPage("/Attendance/Identify", new { culture = cul });
                     }
                     await rsvpService.UpdateRsvp(emailDecoded, Input.FirsName, Input.LastName, Input.Address,
-                                                    Input.PhoneNumber, Input.IsComing, Input.Comment,
+                                                    Input.PhoneNumber,  Input.Comment,
                                                     Input.HasGuest, Input.GuestFirstName, Input.GuestLastName, Input.CommentGuest);
                     logger.LogInformation("####### infos updated");
                     return RedirectToPage("/Attendance/Finished", new { culture = cul });
